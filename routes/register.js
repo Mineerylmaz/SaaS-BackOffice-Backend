@@ -31,7 +31,7 @@ router.post('/add-user', async (req, res) => {
 
 router.get('/list-users', async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT id, firstname, lastname, email, credits, role, plan, last_login FROM users');
+        const [rows] = await pool.query('SELECT id, firstname, lastname, email, credits, role, plan, last_login,created_at FROM users');
         res.json(rows);
     } catch (error) {
         console.error(error);
