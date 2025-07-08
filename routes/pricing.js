@@ -1,43 +1,46 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
+
 router.get('/', async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM pricing');
-
-        const pricing = rows.map(row => ({
-            id: row.id,
-            name: row.name,
-            price: row.price,
-            features: JSON.parse(row.features)
-        }));
-        res.json(pricing);
-    } catch (err) {
-        console.error(err);
+        res.json(rows);
+    } catch (error) {
+        console.error('Pricing GET error:', error);
         res.status(500).json({ error: 'Veritabanı hatası' });
     }
 });
 
 
 router.put('/', async (req, res) => {
-    const newPricing = req.body;
+    const pricingList = req.body;
 
     try {
 
         await pool.query('DELETE FROM pricing');
 
 
-        for (const plan of newPricing) {
+        for (const plan of pricingList) {
+            console.log('Plan kaydediliyor:', plan);
             await pool.query(
-                'INSERT INTO pricing (id, name, price, features) VALUES (?, ?, ?, ?)',
-                [plan.id, plan.name, plan.price, JSON.stringify(plan.features)]
+                'INSERT INTO pricing (name, price, features, rt_url_limit, static_url_limit) VALUES (?, ?, ?, ?, ?)',
+                [
+                    plan.name,
+                    plan.price,
+                    JSON.stringify(plan.features),
+                    plan.rt_url_limit || 0,
+                    plan.static_url_limit || 0,
+                ]
             );
         }
 
-        res.json(newPricing);
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Veritabanı hatası' });
+
+
+        res.json(pricingList);
+    } catch (error) {
+        console.error('Pricing PUT error:', error);
+        res.status(500).json({ error: 'Fiyatlar güncellenemedi' });
     }
 });
 

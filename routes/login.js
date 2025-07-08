@@ -15,11 +15,13 @@ router.post('/login', async (req, res) => {
 
     try {
         const [rows] = await pool.query(
-            'SELECT id, email, password_hash, role FROM users WHERE email = ?',
+            'SELECT id, email, password_hash, role, plan FROM users WHERE email = ?',
             [email]
         );
 
         const user = rows[0];
+
+
 
         if (!user) {
             return res.status(401).json({ error: 'Kullanıcı bulunamadı' });
@@ -30,7 +32,7 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ error: 'Şifre yanlış' });
         }
 
-        // SADECE BİR KERE GÜNCELLE
+
         await pool.query(
             'UPDATE users SET last_login = NOW() WHERE id = ?',
             [user.id]
@@ -46,6 +48,7 @@ router.post('/login', async (req, res) => {
             id: user.id,
             email: user.email,
             role: user.role,
+            plan: user.plan,
             token: token,
         });
     } catch (error) {
