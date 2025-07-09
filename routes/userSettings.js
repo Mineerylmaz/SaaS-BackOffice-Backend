@@ -17,7 +17,7 @@ router.put('/profile/:userId', async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Sunucu hatası' });
-    }
+    } a
 });
 const bcrypt = require('bcrypt');
 
@@ -52,11 +52,23 @@ router.get('/settings/:userId', async (req, res) => {
     const { userId } = req.params;
     try {
         const [rows] = await pool.query(`
-     SELECT us.settings, u.plan, p.rt_url_limit, p.static_url_limit 
-FROM user_settings us
-JOIN users u ON us.user_id = u.id
-JOIN pricing p ON u.plan = p.name
-WHERE us.user_id = ?
+  SELECT 
+  u.id,
+  u.plan,
+  us.settings,
+  p.rt_url_limit,
+  p.static_url_limit
+FROM 
+  users u
+  LEFT JOIN user_settings us ON u.id = us.user_id
+  LEFT JOIN pricing p ON u.plan COLLATE utf8mb4_general_ci = p.name COLLATE utf8mb4_general_ci
+WHERE 
+  u.id = ?;
+
+
+
+
+
 
     `, [userId]);
 

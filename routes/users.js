@@ -23,7 +23,7 @@ router.get('/:userId/active-plan', async (req, res) => {
         if (!activePlanId) return res.json({ plan: null, settings: {} });
 
 
-        const [planRows] = await pool.query('SELECT * FROM pricing WHERE id = ?', [activePlanId]);
+        const [planRows] = await pool.query('SELECT * FROM pricing WHERE name = ?', [activePlanId]);
 
         if (planRows.length === 0) return res.json({ plan: null, settings: {} });
 
