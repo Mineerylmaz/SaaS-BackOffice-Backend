@@ -46,7 +46,6 @@ router.post('/add-user', async (req, res) => {
     }
 });
 
-
 router.get('/list-users', async (req, res) => {
     try {
         const [rows] = await pool.query(`
@@ -57,10 +56,9 @@ router.get('/list-users', async (req, res) => {
             WHERE u.deleted = FALSE
         `);
 
-
         const users = rows.map(user => ({
             ...user,
-            settings: user.settings ? JSON.parse(user.settings) : {}
+            settings: user.settings || {}
         }));
 
         res.json(users);
@@ -69,6 +67,7 @@ router.get('/list-users', async (req, res) => {
         res.status(500).json({ error: 'Kullanıcılar alınamadı' });
     }
 });
+
 
 router.delete('/delete-user/:id', async (req, res) => {
     const userId = req.params.id;

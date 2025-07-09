@@ -3,18 +3,86 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 
+router.put('/profile/:userId', async (req, res) => {
+    const { userId } = req.params;
+    const { email, notifications } = req.body;
+
+    try {
+        const [result] = await pool.query(
+            'UPDATE users SET email = ?, notifications = ? WHERE id = ?',
+            [email, notifications ? 1 : 0, userId]
+        );
+        console.log('Email update result:', result);
+        res.json({ success: true });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
+const bcrypt = require('bcrypt');
+
+router.put('/password/:userId', async (req, res) => {
+    const { userId } = req.params;
+    const { oldPassword, newPassword } = req.body;
+
+    try {
+
+        const [rows] = await pool.query('SELECT password_hash FROM users WHERE id = ?', [userId]);
+        if (rows.length === 0) {
+            return res.status(404).json({ error: 'Kullanıcı bulunamadı' });
+        }
+
+        const valid = await bcrypt.compare(oldPassword, rows[0].password_hash);
+        if (!valid) {
+            return res.status(400).json({ error: 'Eski şifre hatalı' });
+        }
+
+
+        const newHash = await bcrypt.hash(newPassword, 10);
+        await pool.query('UPDATE users SET password_hash = ? WHERE id = ?', [newHash, userId]);
+
+        res.json({ success: true });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
 
 router.get('/settings/:userId', async (req, res) => {
     const { userId } = req.params;
     try {
-        const [rows] = await pool.query('SELECT settings FROM user_settings WHERE user_id = ?', [userId]);
-        if (rows.length === 0) return res.json({ settings: {} });
-        res.json({ settings: JSON.parse(rows[0].settings) });
+        const [rows] = await pool.query(`
+     SELECT us.settings, u.plan, p.rt_url_limit, p.static_url_limit 
+FROM user_settings us
+JOIN users u ON us.user_id = u.id
+JOIN pricing p ON u.plan = p.name
+WHERE us.user_id = ?
+
+    `, [userId]);
+
+        if (rows.length === 0) {
+            return res.json({
+                settings: {},
+                plan: null,
+            });
+        }
+
+        const row = rows[0];
+
+        res.json({
+            settings: row.settings,
+            plan: {
+                name: row.plan,
+                rt_url_limit: row.rt_url_limit,
+                static_url_limit: row.static_url_limit,
+            },
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
+
 
 
 router.put('/settings/:userId', async (req, res) => {

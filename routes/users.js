@@ -1,4 +1,3 @@
-
 const express = require('express');
 const pool = require('../db');
 const router = express.Router();
@@ -44,4 +43,4 @@ router.get('/:userId/active-plan', async (req, res) => {
 });
 
 
-module.exports = router;
+module.exports = router; 
