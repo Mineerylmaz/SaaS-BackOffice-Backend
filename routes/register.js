@@ -19,14 +19,27 @@ router.post('/add-user', async (req, res) => {
             [firstname, lastname, email, hashedPassword, plan, role]
         );
 
-        console.log(`Yeni kullanıcı eklendi: ${firstname} ${lastname} ${email} ${plan} `);
+        const jwt = require('jsonwebtoken');
+        const SECRET = config.secret || '123';
 
-        res.status(201).json({ message: 'Kullanıcı başarıyla eklendi', userId: result.insertId });
+        const token = jwt.sign(
+            { id: result.insertId, email, role },
+            SECRET,
+            { expiresIn: '1d' }
+        );
+
+        res.status(201).json({
+            message: 'Kullanıcı başarıyla eklendi',
+            user: { id: result.insertId, email, role, plan },
+            token
+        });
+
     } catch (error) {
         console.error('Add user error:', error);
         res.status(500).json({ error: 'Bir hata oluştu' });
     }
 });
+
 
 
 router.get('/list-users', async (req, res) => {

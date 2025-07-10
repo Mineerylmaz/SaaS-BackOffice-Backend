@@ -48,6 +48,10 @@ router.put('/password/:userId', async (req, res) => {
     }
 });
 
+
+
+
+
 router.get('/settings/:userId', async (req, res) => {
     const { userId } = req.params;
     try {
@@ -89,6 +93,51 @@ WHERE
                 static_url_limit: row.static_url_limit,
             },
         });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
+router.get('/urlResults/:userId', async (req, res) => {
+    const { userId } = req.params;
+    const { start, end } = req.query;
+
+    try {
+        let query = `
+          SELECT id, name, url, type, response_time AS responseTime, status, checked_at AS checkedAt, error_message AS errorMessage
+          FROM url_status
+          WHERE user_id = ?
+        `;
+        const params = [userId];
+
+        if (start && end) {
+            query += ` AND checked_at BETWEEN ? AND ?`;
+            params.push(start, end);
+        }
+
+        query += ` ORDER BY checked_at DESC`;
+
+        const [rows] = await pool.query(query, params);
+        res.json(rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
+
+
+router.post('/urlResults', async (req, res) => {
+    const { userId, name, url, type, responseTime, status, checkedAt, errorMessage } = req.body;
+
+    try {
+        await pool.query(
+            `INSERT INTO url_status
+        (user_id, name, url, type, response_time, status, checked_at, error_message)
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+            [userId, name, url, type, responseTime, status, checkedAt, errorMessage]
+        );
+
+        res.json({ success: true });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Sunucu hatası' });
