@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest --detectOpenHandles --forceExit"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,9 @@
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.1",
     "node-cron": "^4.2.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
   }
 }
