@@ -24,15 +24,18 @@ router.put('/', async (req, res) => {
         for (const plan of pricingList) {
             console.log('Plan kaydediliyor:', plan);
             await pool.query(
-                'INSERT INTO pricing (name, price, features, rt_url_limit, static_url_limit) VALUES (?, ?, ?, ?, ?)',
+                'INSERT INTO pricing (name, price, features, rt_url_limit, static_url_limit, max_file_size,roles) VALUES (?, ?, ?, ?, ?, ?,?)',
                 [
                     plan.name,
                     plan.price,
                     JSON.stringify(plan.features),
                     plan.rt_url_limit || 0,
                     plan.static_url_limit || 0,
+                    plan.max_file_size || 0,
+                    JSON.stringify(plan.roles || [])
                 ]
             );
+
         }
 
 

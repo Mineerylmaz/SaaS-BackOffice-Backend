@@ -17,7 +17,7 @@ router.put('/profile/:userId', async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Sunucu hatası' });
-    } a
+    }
 });
 const bcrypt = require('bcrypt');
 
@@ -57,24 +57,20 @@ router.get('/settings/:userId', async (req, res) => {
     try {
         const [rows] = await pool.query(`
   SELECT 
-  u.id,
-  u.plan,
-  us.settings,
-  p.rt_url_limit,
-  p.static_url_limit
-FROM 
-  users u
-  LEFT JOIN user_settings us ON u.id = us.user_id
-  LEFT JOIN pricing p ON u.plan COLLATE utf8mb4_general_ci = p.name COLLATE utf8mb4_general_ci
-WHERE 
-  u.id = ?;
+    u.id,
+    u.plan,
+    us.settings,
+    p.rt_url_limit,
+    p.static_url_limit,
+    p.max_file_size  -- buraya ekledik
+  FROM 
+    users u
+    LEFT JOIN user_settings us ON u.id = us.user_id
+    LEFT JOIN pricing p ON u.plan COLLATE utf8mb4_general_ci = p.name COLLATE utf8mb4_general_ci
+  WHERE 
+    u.id = ?;
+`, [userId]);
 
-
-
-
-
-
-    `, [userId]);
 
         if (rows.length === 0) {
             return res.json({
@@ -91,8 +87,10 @@ WHERE
                 name: row.plan,
                 rt_url_limit: row.rt_url_limit,
                 static_url_limit: row.static_url_limit,
+                max_file_size: row.max_file_size,
             },
         });
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Sunucu hatası' });
@@ -163,5 +161,34 @@ router.put('/settings/:userId', async (req, res) => {
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
+router.delete('/settings/url/:userId', async (req, res) => {
+    const { userId } = req.params;
+    const { url, type } = req.body;
+
+    try {
+        const [rows] = await pool.query('SELECT settings FROM user_settings WHERE user_id = ?', [userId]);
+        if (!rows.length) return res.status(404).json({ error: 'Settings bulunamadı' });
+
+        const settings = JSON.parse(rows[0].settings || '{}');
+
+        if (type === 'rt') {
+            settings.rt_urls = (settings.rt_urls || []).filter(item => item.url !== url);
+        } else if (type === 'static') {
+            settings.static_urls = (settings.static_urls || []).filter(item => item.url !== url);
+        } else {
+            return res.status(400).json({ error: 'Geçersiz URL tipi' });
+        }
+
+        await pool.query('UPDATE user_settings SET settings = ? WHERE user_id = ?', [JSON.stringify(settings), userId]);
+        await pool.query('INSERT INTO deleted_urls (user_id, url, type, deleted_at) VALUES (?, ?, ?, NOW())', [userId, url, type]);
+
+        res.json({ success: true, settings });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
+
+
 
 module.exports = router;
