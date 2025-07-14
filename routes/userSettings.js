@@ -62,7 +62,8 @@ router.get('/settings/:userId', async (req, res) => {
     us.settings,
     p.rt_url_limit,
     p.static_url_limit,
-    p.max_file_size  -- buraya ekledik
+    p.max_file_size  ,
+    p.roles
   FROM 
     users u
     LEFT JOIN user_settings us ON u.id = us.user_id
@@ -88,6 +89,7 @@ router.get('/settings/:userId', async (req, res) => {
                 rt_url_limit: row.rt_url_limit,
                 static_url_limit: row.static_url_limit,
                 max_file_size: row.max_file_size,
+                roles: row.roles
             },
         });
 

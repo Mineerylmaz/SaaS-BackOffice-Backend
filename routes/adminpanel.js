@@ -12,9 +12,9 @@ function generateApiKey() {
 
 router.post('/add-user', async (req, res) => {
     try {
-        const { email, password, credits, role } = req.body;
+        const { email, password, credits, role, roles } = req.body;
 
-        if (!email || !password || !role) {
+        if (!email || !password || !role || !roles) {
             return res.status(400).json({ error: 'Eksik alan var!' });
         }
 
@@ -33,7 +33,7 @@ router.post('/add-user', async (req, res) => {
         }
 
         const [result] = await pool.query(
-            'INSERT INTO users (email, password_hash, credits, role, api_key) VALUES (?, ?, ?, ?, ?)',
+            'INSERT INTO users (email, password_hash, credits, role,roles) VALUES (?, ?, ?, ?, ?)',
             [email, hashedPassword, credits || 0, role, api_key]
         );
 
@@ -49,7 +49,7 @@ router.post('/add-user', async (req, res) => {
 router.get('/list-users', async (req, res) => {
     try {
         const [rows] = await pool.query(`
-            SELECT u.id, u.email, u.credits, u.role, u.plan, u.api_key, u.last_login, u.created_at,
+            SELECT u.id, u.email, u.credits, u.roles, u.plan, u.api_key, u.last_login, u.created_at,
                    us.settings
             FROM users u
             LEFT JOIN user_settings us ON u.id = us.user_id
@@ -134,6 +134,31 @@ router.put('/update-user-plan/:id', async (req, res) => {
 });
 
 
+router.put('/update-user-roles/:id', async (req, res) => {
+    const userId = req.params.id;
+    const { roles } = req.body; // roles array bekliyoruz
+
+    if (!roles) {
+        return res.status(400).json({ error: 'Roles alanı gerekli' });
+    }
+
+    try {
+        const rolesJson = JSON.stringify(roles);
+        const [result] = await pool.query(
+            'UPDATE users SET roles = ? WHERE id = ?',
+            [rolesJson, userId]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ error: 'Kullanıcı bulunamadı' });
+        }
+
+        res.json({ message: 'Roller başarıyla güncellendi' });
+    } catch (error) {
+        console.error('Rol güncelleme hatası:', error);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
 
 
 
