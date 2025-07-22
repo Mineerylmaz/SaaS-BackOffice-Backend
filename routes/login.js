@@ -37,6 +37,18 @@ router.post('/login', async (req, res) => {
             'UPDATE users SET last_login = NOW() WHERE id = ?',
             [user.id]
         );
+        const [pricingRows] = await pool.query(
+            'SELECT name, roles FROM pricing WHERE name = ?',
+            [user.plan]
+        );
+
+        let plan = null;
+        if (pricingRows.length > 0) {
+            plan = {
+                name: pricingRows[0].name,
+                roles: JSON.parse(pricingRows[0].roles) // roles JSON.parse ile parse ediliyor
+            };
+        }
 
         const token = jwt.sign(
             { id: user.id, email: user.email, role: user.role },
@@ -48,7 +60,7 @@ router.post('/login', async (req, res) => {
             id: user.id,
             email: user.email,
             role: user.role,
-            plan: user.plan,
+            plan: plan,
             token: token,
         });
     } catch (error) {

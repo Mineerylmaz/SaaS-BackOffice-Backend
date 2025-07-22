@@ -2,8 +2,9 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
-
-router.put('/profile/:userId', async (req, res) => {
+const authenticateToken = require('../middleware/authenticateToken');
+const authorizeRole = require('../middleware/authorizeRole');
+router.put('/profile/:userId', authenticateToken, authorizeRole(['admin', 'editor']), async (req, res) => {
     const { userId } = req.params;
     const { email, notifications } = req.body;
 
@@ -21,7 +22,7 @@ router.put('/profile/:userId', async (req, res) => {
 });
 const bcrypt = require('bcrypt');
 
-router.put('/password/:userId', async (req, res) => {
+router.put('/password/:userId', authenticateToken, authorizeRole(['admin', 'editor']), async (req, res) => {
     const { userId } = req.params;
     const { oldPassword, newPassword } = req.body;
 
@@ -52,7 +53,7 @@ router.put('/password/:userId', async (req, res) => {
 
 
 
-router.get('/settings/:userId', async (req, res) => {
+router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'editor']), async (req, res) => {
     const { userId } = req.params;
     try {
         const [rows] = await pool.query(`
@@ -104,18 +105,19 @@ router.get('/urlResults/:userId', async (req, res) => {
 
     try {
         let query = `
-          SELECT id, name, url, type, response_time AS responseTime, status, checked_at AS checkedAt, error_message AS errorMessage
-          FROM url_status
-          WHERE user_id = ?
+          SELECT us.id, us.name, us.url, us.type, us.response_time AS responseTime, us.status, us.checked_at AS checkedAt, us.error_message AS errorMessage
+          FROM url_status us
+          LEFT JOIN deleted_urls du ON us.user_id = du.user_id AND us.url = du.url
+          WHERE us.user_id = ? AND du.url IS NULL
         `;
         const params = [userId];
 
         if (start && end) {
-            query += ` AND checked_at BETWEEN ? AND ?`;
+            query += ` AND us.checked_at BETWEEN ? AND ?`;
             params.push(start, end);
         }
 
-        query += ` ORDER BY checked_at DESC`;
+        query += ` ORDER BY us.checked_at DESC`;
 
         const [rows] = await pool.query(query, params);
         res.json(rows);
@@ -126,7 +128,9 @@ router.get('/urlResults/:userId', async (req, res) => {
 });
 
 
-router.post('/urlResults', async (req, res) => {
+
+
+router.post('/urlResults', authenticateToken, authorizeRole(['admin', 'editor']), async (req, res) => {
     const { userId, name, url, type, responseTime, status, checkedAt, errorMessage } = req.body;
 
     try {
@@ -163,7 +167,7 @@ router.put('/settings/:userId', async (req, res) => {
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
-router.delete('/settings/url/:userId', async (req, res) => {
+router.delete('/settings/url/:userId', authenticateToken, authorizeRole(['admin']), async (req, res) => {
     const { userId } = req.params;
     const { url, type } = req.body;
 
@@ -183,6 +187,8 @@ router.delete('/settings/url/:userId', async (req, res) => {
 
         await pool.query('UPDATE user_settings SET settings = ? WHERE user_id = ?', [JSON.stringify(settings), userId]);
         await pool.query('INSERT INTO deleted_urls (user_id, url, type, deleted_at) VALUES (?, ?, ?, NOW())', [userId, url, type]);
+        console.log('Deleted URL kayıt ediliyor:', { userId, url, type });
+
 
         res.json({ success: true, settings });
     } catch (error) {

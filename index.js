@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-
 const pool = require('./db');
 const registerRouter = require('./routes/register');
 const config = require('./config');
@@ -10,8 +9,9 @@ const priceRoutes = require('./routes/pricing');
 const adminpanelRoutes = require(`./routes/adminpanel`)
 const userSettingsRoutes = require('./routes/userSettings');
 const axios = require('axios');
-
+const invitesRoutes = require('./routes/invites');
 const cron = require('node-cron');
+require('dotenv').config();
 
 const cronTask = async () => {
     console.log('[CRON] URL kontrol başlıyor...');
@@ -37,10 +37,33 @@ const cronTask = async () => {
             settings = {};
         }
 
+        function isValidUrl(url) {
+            try {
+                const cleanUrl = url.trim().replace(/^"+|"+$/g, '');
+                new URL(cleanUrl);
+                return true;
+            } catch {
+                return false;
+            }
+        }
+
+        const [deletedRows] = await pool.query(
+            'SELECT url, type FROM deleted_urls WHERE user_id = ?',
+            [row.user_id]
+        );
+
+        const deletedSet = new Set(deletedRows.map(d => d.url + '|' + d.type));
+
         const allUrls = [
-            ...(settings.rt_urls || []).map(u => ({ ...u, type: 'rt' })),
-            ...(settings.static_urls || []).map(u => ({ ...u, type: 'static' })),
+            ...(settings.rt_urls || []).filter(u =>
+                isValidUrl(u.url) && !deletedSet.has(u.url.trim().replace(/^"+|"+$/g, '') + '|rt')
+            ).map(u => ({ ...u, type: 'rt', url: u.url.trim().replace(/^"+|"+$/g, '') })),
+            ...(settings.static_urls || []).filter(u =>
+                isValidUrl(u.url) && !deletedSet.has(u.url.trim().replace(/^"+|"+$/g, '') + '|static')
+            ).map(u => ({ ...u, type: 'static', url: u.url.trim().replace(/^"+|"+$/g, '') })),
         ];
+
+
 
         for (const urlObj of allUrls) {
             const { url, type, name } = urlObj;  // name de gelsin
@@ -74,11 +97,18 @@ cron.schedule('*/2 * * * *', cronTask);
 
 
 
+
+
+
+
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
+
+app.use('/api/invites', invitesRoutes);
 
 app.use('/api/register', registerRouter);
 app.use('/api/users', usersRouter);
@@ -88,6 +118,7 @@ app.use('/api/adminpanel', adminpanelRoutes)
 app.use('/api/userSettings', userSettingsRoutes);
 
 
+app.use('/api/plans', priceRoutes);
 app.get('/', (req, res) => {
     res.send('Backend Çalışıyor!');
 });

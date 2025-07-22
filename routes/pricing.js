@@ -1,11 +1,32 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
-
+const authenticateToken = require('../middleware/authenticateToken');
+const authorizeRole = require('../middleware/authorizeRole');
 router.get('/', async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM pricing');
-        res.json(rows);
+
+
+        const parsedRows = rows.map((row) => {
+            let roles = row.roles;
+
+            if (typeof roles === 'string') {
+                try {
+                    roles = JSON.parse(roles);
+                } catch (e) {
+                    console.warn(`roles parse edilemedi: ${roles}`);
+                    roles = [];
+                }
+            }
+
+            return {
+                ...row,
+                roles: roles
+            };
+        });
+
+        res.json(parsedRows);
     } catch (error) {
         console.error('Pricing GET error:', error);
         res.status(500).json({ error: 'Veritabanı hatası' });
@@ -13,7 +34,8 @@ router.get('/', async (req, res) => {
 });
 
 
-router.put('/', async (req, res) => {
+
+router.put('/', authenticateToken, authorizeRole(['admin']), async (req, res) => {
     const pricingList = req.body;
 
     try {

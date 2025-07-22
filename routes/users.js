@@ -2,39 +2,50 @@ const express = require('express');
 const pool = require('../db');
 const router = express.Router();
 
-router.get('/list-users', async (req, res) => {
-    try {
-        const [rows] = await pool.query('SELECT id, firstname, lastname, email, credits, role, plan, last_login,created_at FROM users');
-        res.json(rows);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Sunucu hatası' });
-    }
-});
+// JSON parse fonksiyonu - güvenli
 function safeParse(jsonString, fallback) {
-    let rolesParsed = [];
     try {
-        rolesParsed = JSON.parse(plan.roles);
+        return JSON.parse(jsonString);
     } catch {
-        rolesParsed = [];
+        return fallback;
     }
-    plan.roles = rolesParsed;
-
 }
 
-router.get('/:userId/active-plan', async (req, res) => {
-    const { userId } = req.params;
+// Örnek auth middleware (senin projene göre düzenle)
+function authenticateToken(req, res, next) {
+    console.log("burası")
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    if (!token) return res.sendStatus(401);
+
+    // jwt doğrulama (SECRET senin belirlediğin)
+    const jwt = require('jsonwebtoken');
+    const SECRET = '123';
+
+    jwt.verify(token, SECRET, (err, user) => {
+        if (err) return res.sendStatus(403);
+        console.log("user", user);
+        req.user = user;
+        next();
+    });
+}
+
+// Kullanıcının aktif planını dönen endpoint (auth ile)
+router.get('/active-plan', authenticateToken, async (req, res) => {
+    const userId = req.user.id;
+
     try {
         const [userRows] = await pool.query('SELECT plan FROM users WHERE id = ?', [userId]);
         if (userRows.length === 0) return res.status(404).json({ error: 'Kullanıcı bulunamadı' });
 
-        const activePlanId = userRows[0].plan;
-        if (!activePlanId) return res.json({ plan: null, settings: {} });
+        const activePlanName = userRows[0].plan;
+        if (!activePlanName) return res.json({ plan: null, settings: {} });
 
-        const [planRows] = await pool.query('SELECT * FROM pricing WHERE name = ?', [activePlanId]);
+        const [planRows] = await pool.query('SELECT * FROM pricing WHERE name = ?', [activePlanName]);
         if (planRows.length === 0) return res.json({ plan: null, settings: {} });
 
         const plan = planRows[0];
+
 
         plan.features = safeParse(plan.features, {});
         plan.roles = safeParse(plan.roles, []);
@@ -48,5 +59,4 @@ router.get('/:userId/active-plan', async (req, res) => {
     }
 });
 
-
-module.exports = router; 
+module.exports = router;

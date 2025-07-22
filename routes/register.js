@@ -4,41 +4,61 @@ const pool = require('../db');
 const config = require('../config')
 const router = express.Router();
 
-router.post('/add-user', async (req, res) => {
-    try {
-        const { firstname, lastname, email, password, plan = 'free', role = 'free' } = req.body;
+const jwt = require('jsonwebtoken');
 
-        if (!email || !password || !lastname || !firstname) {
-            return res.status(400).json({ error: 'Eksik alan var!' });
+
+
+router.post('/add-user', async (req, res) => {
+    const { firstname, lastname, email, password, inviteToken } = req.body;
+
+    try {
+        if (inviteToken) {
+            const [inviteRows] = await pool.query(
+                'SELECT role, inviter_user_id, status FROM invites WHERE token = ?',
+                [inviteToken]
+            );
+
+            if (inviteRows.length === 0 || inviteRows[0].status === 'accepted') {
+                return res.status(400).json({ error: 'Geçersiz veya kullanılmış davet' });
+            }
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-
-        const [result] = await pool.query(
-            'INSERT INTO users (firstname, lastname, email, password_hash, plan, role) VALUES (?, ?, ?, ?, ?, ?)',
-            [firstname, lastname, email, hashedPassword, plan, role]
+        const [userResult] = await pool.query(
+            'INSERT INTO users (firstname, lastname, email, password_hash) VALUES (?, ?, ?, ?)',
+            [firstname, lastname, email, hashedPassword]
         );
 
-        const jwt = require('jsonwebtoken');
-        const SECRET = config.secret || '123';
+        const userId = userResult.insertId;
 
-        const token = jwt.sign(
-            { id: result.insertId, email, role },
-            SECRET,
-            { expiresIn: '1d' }
-        );
+        if (inviteToken) {
+            await pool.query(
+                'UPDATE invites SET status = ? WHERE token = ?',
+                ['accepted', inviteToken]
+            );
+        }
 
-        res.status(201).json({
-            message: 'Kullanıcı başarıyla eklendi',
-            user: { id: result.insertId, email, role, plan },
+        const token = jwt.sign({ userId }, process.env.JWT_SECRET);
+        res.json({
+            userId,
+            role: inviteToken ? inviteRows[0].role : 'viewer',
+            selectedPlan: 'free',
             token
         });
 
-    } catch (error) {
-        console.error('Add user error:', error);
-        res.status(500).json({ error: 'Bir hata oluştu' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
+
+
+
+
+
+
+
+
 
 
 
