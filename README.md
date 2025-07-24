@@ -53,4 +53,4 @@ cd SaaSBackOfficeBackEnd
 npm install
 ## Çalıştırma
 npm start
-Tarayıcı otomatik olarak http://localhost:3000 açılacaktır.
+Tarayıcı otomatik olarak http://localhost:5000 açılacaktır.
