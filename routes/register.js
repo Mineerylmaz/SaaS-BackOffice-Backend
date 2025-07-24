@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const pool = require('../db');
 const config = require('../config');
 const router = express.Router();
-
+require('dotenv').config();
 router.post('/add-user', async (req, res) => {
     try {
         const { firstname, lastname, email, password, plan, role } = req.body;
@@ -13,21 +13,32 @@ router.post('/add-user', async (req, res) => {
             return res.status(400).json({ error: 'Eksik alan var!' });
         }
 
-        // Şifre hashle
+        console.log('Register geldi:', { firstname, lastname, email, plan, role });
+
+
         const hashedPassword = await bcrypt.hash(password, 10);
+
+
+        const roleToInsert = typeof role === 'object' ? role.value || 'user' : role || 'user';
+
+
+        //const planToInsert = typeof plan === 'object' ? plan?.name : plan || null;
+        const planToInsert = plan?.name || null;
+
+
 
         // Kullanıcıyı ekle
         const [result] = await pool.query(
             'INSERT INTO users (firstname, lastname, email, password_hash, plan, role) VALUES (?, ?, ?, ?, ?, ?)',
-            [firstname, lastname, email, hashedPassword, plan, role]
+            [firstname, lastname, email, hashedPassword, planToInsert, roleToInsert]
         );
 
-        console.log(`Yeni kullanıcı eklendi: ${firstname} ${lastname} ${email} ${plan}`);
+        console.log(`Yeni kullanıcı eklendi: ${firstname} ${lastname} ${email} ${planToInsert} ${roleToInsert}`);
 
         // Kullanıcının plan detaylarını pricing tablosundan al
         const [pricingRows] = await pool.query(
             'SELECT name, roles FROM pricing WHERE name = ?',
-            [plan]
+            [planToInsert]
         );
 
         let planObj = null;
@@ -38,7 +49,7 @@ router.post('/add-user', async (req, res) => {
             };
         }
 
-
+        // Default ayarları ekle
         const defaultSettings = {
             rt_urls: [],
             static_urls: [],
@@ -50,18 +61,16 @@ router.post('/add-user', async (req, res) => {
             [result.insertId, JSON.stringify(defaultSettings)]
         );
 
-
-        const SECRET = config.secret || '123';
+        const SECRET = process.env.JWT_SECRET;
         const token = jwt.sign(
-            { id: result.insertId, email, role },
+            { id: result.insertId, email, role: roleToInsert },
             SECRET,
             { expiresIn: '1d' }
         );
 
-
         res.status(201).json({
             message: 'Kullanıcı başarıyla eklendi',
-            user: { id: result.insertId, email, role, plan: planObj },
+            user: { id: result.insertId, email, role: roleToInsert, plan: planObj },
             token
         });
 

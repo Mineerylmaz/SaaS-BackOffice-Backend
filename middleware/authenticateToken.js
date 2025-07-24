@@ -7,7 +7,7 @@ const SECRET = process.env.JWT_SECRET;
 function authenticateToken(req, res, next) {
     try {
         const authHeader = req.headers.authorization;
-        if (!authHeader) return res.status(401).json({ error: "Token eksik" });
+        if (!authHeader) return res.status(401).json({ error: "Token eksik hata authetokeda cnm" });
 
         const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : authHeader;
 

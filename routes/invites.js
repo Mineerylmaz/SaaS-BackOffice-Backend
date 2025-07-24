@@ -6,7 +6,7 @@ const authenticateToken = require('../middleware/authenticateToken');
 const { v4: uuidv4 } = require('uuid');
 
 // Create invite (admin only)
-router.post('/', authenticateToken, authorizeRole(['admin', 'user']), async (req, res) => {
+router.post('/', authenticateToken, authorizeRole(['admin', 'user', 'superadmin']), async (req, res) => {
     const inviterId = req.user.id;
     const { email, role } = req.body;
 

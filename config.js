@@ -10,6 +10,6 @@ module.exports = {
         connectionLimit: 10,
         queueLimit: 0
     },
-    jwtSecret: process.env.JWT_SECRET || 'defaultFallbackSecret',
+
     port: process.env.PORT || 5000
 };

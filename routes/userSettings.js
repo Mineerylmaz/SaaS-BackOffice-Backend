@@ -4,7 +4,7 @@ const router = express.Router();
 const pool = require('../db');
 const authenticateToken = require('../middleware/authenticateToken');
 const authorizeRole = require('../middleware/authorizeRole');
-router.put('/profile/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user']), async (req, res) => {
+router.put('/profile/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user', 'superadmin']), async (req, res) => {
     const { userId } = req.params;
     const { email, notifications } = req.body;
 
@@ -22,7 +22,7 @@ router.put('/profile/:userId', authenticateToken, authorizeRole(['admin', 'edito
 });
 const bcrypt = require('bcrypt');
 
-router.put('/password/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user']), async (req, res) => {
+router.put('/password/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user', 'superadmin']), async (req, res) => {
     const { userId } = req.params;
     const { oldPassword, newPassword } = req.body;
 
@@ -53,7 +53,7 @@ router.put('/password/:userId', authenticateToken, authorizeRole(['admin', 'edit
 
 
 
-router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user']), async (req, res) => {
+router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user', 'superadmin']), async (req, res) => {
     const { userId } = req.params;
     try {
         const [rows] = await pool.query(`
@@ -130,7 +130,7 @@ router.get('/urlResults/:userId', async (req, res) => {
 
 
 
-router.post('/urlResults', authenticateToken, authorizeRole(['admin', 'editor', 'user']), async (req, res) => {
+router.post('/urlResults', authenticateToken, authorizeRole(['admin', 'editor', 'user', 'superadmin']), async (req, res) => {
     const { userId, name, url, type, responseTime, status, checkedAt, errorMessage } = req.body;
 
     try {
@@ -167,7 +167,7 @@ router.put('/settings/:userId', async (req, res) => {
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
-router.delete('/settings/url/:userId', authenticateToken, authorizeRole(['admin', 'user']), async (req, res) => {
+router.delete('/settings/url/:userId', authenticateToken, authorizeRole(['admin', 'user', 'superadmin']), async (req, res) => {
     const { userId } = req.params;
     const { url, type } = req.body;
 
