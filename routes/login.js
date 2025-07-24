@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const pool = require('../db');
 const router = express.Router();
 
-const SECRET = '123';
+const SECRET = process.env.JWT_SECRET;
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;

@@ -1,14 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
-
 const authorizeRole = require('../middleware/authorizeRole');
-
-
 const authenticateToken = require('../middleware/authenticateToken');
 const { v4: uuidv4 } = require('uuid');
 
-router.post('/', authenticateToken, authorizeRole(['admin']), async (req, res) => {
+// Create invite (admin only)
+router.post('/', authenticateToken, authorizeRole(['admin', 'user']), async (req, res) => {
     const inviterId = req.user.id;
     const { email, role } = req.body;
 
@@ -16,7 +14,7 @@ router.post('/', authenticateToken, authorizeRole(['admin']), async (req, res) =
         return res.status(400).json({ error: 'Email ve rol zorunludur' });
     }
 
-    const token = uuidv4(); // benzersiz token oluştur
+    const token = uuidv4();
 
     try {
         const [result] = await pool.query(
@@ -25,17 +23,14 @@ router.post('/', authenticateToken, authorizeRole(['admin']), async (req, res) =
         );
 
         const inviteId = result.insertId;
-
-        res.json({ success: true, id: inviteId, token }); // 🔥 token'ı da dön
+        res.json({ success: true, id: inviteId, token });
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
 
-
-
-
+// List invites (admin only)
 router.get('/', authenticateToken, async (req, res) => {
     const inviterId = req.user.id;
 
@@ -51,12 +46,7 @@ router.get('/', authenticateToken, async (req, res) => {
     }
 });
 
-
-
-
-
-
-
+// Accept invite (used during registration)
 router.post("/accept", async (req, res) => {
     const { token } = req.body;
 
@@ -76,37 +66,26 @@ router.post("/accept", async (req, res) => {
             return res.status(400).json({ error: "Davet zaten kabul edilmiş" });
         }
 
-        // Durumu güncelle
         await pool.query(
             'UPDATE invites SET status = ? WHERE token = ?',
             ['accepted', token]
         );
 
-        const [userRows] = await pool.query(
-            'SELECT id, plan FROM users WHERE id = ?',
-            [invite.inviter_user_id]
-        );
-
-        const inviterUser = userRows[0];
-
-        res.status(200).json({
-            message: "Davet kabul edildi",
-            invitedEmail: invite.email,
-            role: invite.role,
-            inviterUserId: invite.inviter_user_id,
-            inviterPlan: inviterUser?.plan || null
-        });
+        res.status(200).json({ success: true });
     } catch (err) {
         console.error("Davet kabul hatası:", err);
         res.status(500).json({ error: "Sunucu hatası" });
     }
 });
-
+// Token ile invite bilgisi getirme
 router.get('/:token', async (req, res) => {
     const { token } = req.params;
 
     try {
-        const [rows] = await pool.query('SELECT * FROM invites WHERE token = ?', [token]);
+        const [rows] = await pool.query(
+            'SELECT * FROM invites WHERE token = ?',
+            [token]
+        );
 
         if (rows.length === 0) {
             return res.status(404).json({ error: 'Davet bulunamadı' });
@@ -114,12 +93,9 @@ router.get('/:token', async (req, res) => {
 
         res.json(rows[0]);
     } catch (err) {
-        console.error(err);
+        console.error('Invite token fetch error:', err);
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
-
-
-
 
 module.exports = router;

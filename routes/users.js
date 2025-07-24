@@ -20,7 +20,7 @@ function authenticateToken(req, res, next) {
 
     // jwt doğrulama (SECRET senin belirlediğin)
     const jwt = require('jsonwebtoken');
-    const SECRET = '123';
+    const SECRET = process.env.JWT_SECRET;
 
     jwt.verify(token, SECRET, (err, user) => {
         if (err) return res.sendStatus(403);

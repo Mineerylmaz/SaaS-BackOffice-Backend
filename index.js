@@ -12,6 +12,9 @@ const axios = require('axios');
 const invitesRoutes = require('./routes/invites');
 const cron = require('node-cron');
 require('dotenv').config();
+console.log("JWT_SECRET config test:", process.env.JWT_SECRET);  // konsolda görülecek mi?
+
+
 
 const cronTask = async () => {
     console.log('[CRON] URL kontrol başlıyor...');
@@ -92,7 +95,7 @@ const cronTask = async () => {
     console.log('[CRON] URL kontrol bitti.');
 };
 
-cron.schedule('*/2 * * * *', cronTask);
+cron.schedule('*/20000 * * * *', cronTask);
 
 
 
@@ -106,6 +109,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
 
 
 app.use('/api/invites', invitesRoutes);
@@ -128,4 +132,9 @@ app.listen(config.port, () => {
 });
 
 
+// Hata yakalama middleware'i
+app.use((err, req, res, next) => {
+    console.error('GENEL HATA YAKALANDI:', err.stack || err);
+    res.status(500).json({ error: 'Sunucu hatası - detay konsolda' });
+});
 
