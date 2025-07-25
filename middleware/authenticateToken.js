@@ -12,7 +12,8 @@ function authenticateToken(req, res, next) {
         const token = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : authHeader;
 
         const decoded = jwt.verify(token, SECRET);
-        req.user = { id: decoded.id, role: decoded.role };
+        req.user = { id: decoded.id, email: decoded.email, role: decoded.role };
+
         next();
     } catch (error) {
         return res.status(401).json({ error: "Geçersiz token" });

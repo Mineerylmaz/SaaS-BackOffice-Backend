@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
 
 
 
-router.put('/', authenticateToken, authorizeRole(['admin']), async (req, res) => {
+router.put('/', authenticateToken, authorizeRole(['superadmin']), async (req, res) => {
     const pricingList = req.body;
 
     try {

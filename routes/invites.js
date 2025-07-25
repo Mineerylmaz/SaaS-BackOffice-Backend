@@ -30,7 +30,7 @@ router.post('/', authenticateToken, authorizeRole(['admin', 'user', 'superadmin'
     }
 });
 
-// List invites (admin only)
+
 router.get('/', authenticateToken, async (req, res) => {
     const inviterId = req.user.id;
 
@@ -46,7 +46,7 @@ router.get('/', authenticateToken, async (req, res) => {
     }
 });
 
-// Accept invite (used during registration)
+
 router.post("/accept", async (req, res) => {
     const { token } = req.body;
 
@@ -97,5 +97,50 @@ router.get('/:token', async (req, res) => {
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
+
+router.delete('/:email', authenticateToken, async (req, res) => {
+    console.log('delete işlemi başladı')
+    const inviterId = req.user.id;
+    const invitedEmail = req.params.email;
+
+    const [rows] = await pool.query(
+        'SELECT * FROM invites WHERE email = ? AND inviter_user_id = ?',
+        [invitedEmail, inviterId]
+    );
+
+    if (rows.length === 0) {
+        return res.status(404).json({ error: "Davet bulunamadı" });
+    }
+
+
+    await pool.query(
+        'DELETE FROM invites WHERE email = ? AND inviter_user_id = ?',
+        [invitedEmail, inviterId]
+    );
+
+
+
+    res.status(200).json({ message: "Davet silindi" });
+
+
+});
+// invites.js (Express router)
+router.get('/by-inviter/:inviterEmail', authenticateToken, async (req, res) => {
+    const inviterEmail = req.params.inviterEmail;
+
+    try {
+        const [rows] = await pool.query(
+            'SELECT * FROM invites WHERE inviter_email = ?',
+            [inviterEmail]
+        );
+
+        res.json(rows);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
+
+
 
 module.exports = router;

@@ -23,7 +23,7 @@ router.post('/add-user', async (req, res) => {
 
 
         //const planToInsert = typeof plan === 'object' ? plan?.name : plan || null;
-        const planToInsert = plan?.name || null;
+        const planToInsert = plan?.name || 'basic';
 
 
 
@@ -34,8 +34,10 @@ router.post('/add-user', async (req, res) => {
         );
 
         console.log(`Yeni kullanıcı eklendi: ${firstname} ${lastname} ${email} ${planToInsert} ${roleToInsert}`);
-
-        // Kullanıcının plan detaylarını pricing tablosundan al
+        await pool.query(
+            "UPDATE invites SET status = 'kabul edildi' WHERE email = ? AND status = 'bekliyor'",
+            [email]
+        );
         const [pricingRows] = await pool.query(
             'SELECT name, roles FROM pricing WHERE name = ?',
             [planToInsert]
@@ -78,6 +80,7 @@ router.post('/add-user', async (req, res) => {
         console.error('Add user error:', error);
         res.status(500).json({ error: 'Bir hata oluştu' });
     }
+
 });
 
 module.exports = router;
