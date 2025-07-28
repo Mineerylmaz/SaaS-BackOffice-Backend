@@ -3,6 +3,7 @@ const express = require('express');
 const usersRouter = require('../routes/userSettings');
 const pool = require('../db');
 const bcrypt = require('bcrypt');
+require('dotenv').config(); // .env dosyasını yükler
 
 const app = express();
 app.use(express.json());

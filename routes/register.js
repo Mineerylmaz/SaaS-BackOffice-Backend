@@ -17,6 +17,10 @@ router.post('/add-user', async (req, res) => {
 
 
         const hashedPassword = await bcrypt.hash(password, 10);
+        const planStartDate = new Date();
+        const planEndDate = new Date();
+        planEndDate.setDate(planStartDate.getDate() + 30);
+
 
 
         const roleToInsert = typeof role === 'object' ? role.value || 'user' : role || 'user';
@@ -27,11 +31,11 @@ router.post('/add-user', async (req, res) => {
 
 
 
-        // Kullanıcıyı ekle
         const [result] = await pool.query(
-            'INSERT INTO users (firstname, lastname, email, password_hash, plan, role) VALUES (?, ?, ?, ?, ?, ?)',
-            [firstname, lastname, email, hashedPassword, planToInsert, roleToInsert]
+            'INSERT INTO users (firstname, lastname, email, password_hash, plan, role, plan_start_date, plan_end_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [firstname, lastname, email, hashedPassword, planToInsert, roleToInsert, planStartDate, planEndDate]
         );
+
 
         console.log(`Yeni kullanıcı eklendi: ${firstname} ${lastname} ${email} ${planToInsert} ${roleToInsert}`);
         await pool.query(

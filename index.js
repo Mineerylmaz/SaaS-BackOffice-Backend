@@ -10,6 +10,8 @@ const adminpanelRoutes = require(`./routes/adminpanel`)
 const userSettingsRoutes = require('./routes/userSettings');
 const axios = require('axios');
 const invitesRoutes = require('./routes/invites');
+const settingKeyRoutes = require('./routes/settingkey');
+const usertabRouter = require('./routes/user_tab');
 const cron = require('node-cron');
 require('dotenv').config();
 console.log("JWT_SECRET config test:", process.env.JWT_SECRET);  // konsolda görülecek mi?
@@ -95,7 +97,7 @@ const cronTask = async () => {
     console.log('[CRON] URL kontrol bitti.');
 };
 
-cron.schedule('*/20000 * * * *', cronTask);
+cron.schedule('*/2 * * * *', cronTask);
 
 
 
@@ -111,6 +113,8 @@ app.use(cors());
 app.use(express.json());
 
 
+app.use('/api/user_tab', usertabRouter);
+
 
 app.use('/api/invites', invitesRoutes);
 
@@ -120,6 +124,7 @@ app.use('/api/login', loginRouter);
 app.use('/api/pricing', priceRoutes);
 app.use('/api/adminpanel', adminpanelRoutes)
 app.use('/api/userSettings', userSettingsRoutes);
+app.use('/api/setting-key', settingKeyRoutes);
 
 
 app.use('/api/plans', priceRoutes);

@@ -3,11 +3,16 @@ const express = require('express');
 const pricingRouter = require('../routes/pricing');
 const pool = require('../db');
 
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 app.use('/api/pricing', pricingRouter);
 
+jest.mock('../middleware/authenticateToken', () => (req, res, next) => {
+    req.user = { id: 1 }; // sahte kullanıcı
+    next();
+});
 
 jest.mock('../db', () => {
     return {
@@ -28,7 +33,8 @@ describe('Pricing API', () => {
         ];
 
 
-        pool.query.mockResolvedValueOnce([fakePricing]);
+        pool.query.mockResolvedValueOnce([[fakePricing]]);
+
 
         const res = await request(app).get('/api/pricing');
 

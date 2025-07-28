@@ -2,7 +2,8 @@ const request = require('supertest');
 const express = require('express');
 const bodyParser = require('body-parser');
 
-// Router'ı import et
+require('dotenv').config(); // .env dosyasını yükler
+
 const registerRouter = require('../routes/register');
 
 // Gerçek DB yerine test DB bağlantısı veya test doubles kullanabilirsin

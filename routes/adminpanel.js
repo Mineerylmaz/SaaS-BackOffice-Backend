@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const pool = require('../db');
 
 const router = express.Router();
-
+const authenticateToken = require('../middleware/authenticateToken');
 const crypto = require('crypto');
 
 function generateApiKey() {
@@ -162,6 +162,53 @@ router.put('/update-user-roles/:id', async (req, res) => {
 
 
 
+
+router.put('/change-user-plan/:id', authenticateToken, async (req, res) => {
+    const userId = req.params.id;
+    const { newPlan } = req.body;
+
+    try {
+        const [[user]] = await pool.query('SELECT * FROM users WHERE id = ?', [userId]);
+
+        const planRank = (plan) => ({ Basic: 1, Pro: 2, Premium: 3 }[plan] || 0);
+
+        const now = new Date();
+        const nowStr = now.toISOString().split('T')[0]; // YYYY-MM-DD
+
+        // plan_end_date hesapla
+        const planEndDate = new Date(now);
+        planEndDate.setDate(planEndDate.getDate() + 30);
+        const planEndDateStr = planEndDate.toISOString().split('T')[0];
+
+        const nextMonth = new Date(now);
+        nextMonth.setMonth(now.getMonth() + 1);
+        const nextMonthStr = nextMonth.toISOString().split('T')[0];
+
+        if (planRank(newPlan) > planRank(user.plan)) {
+            // Upgrade: hemen geç, plan_start_date ve plan_end_date ekle
+            await pool.query(
+                'UPDATE users SET plan = ?, plan_start_date = ?, plan_end_date = ?, next_plan = NULL, plan_change_date = NULL WHERE id = ?',
+                [newPlan, nowStr, planEndDateStr, userId]
+            );
+            return res.json({ message: 'Planınız yükseltildi ve hemen aktif oldu.' });
+
+        } else if (planRank(newPlan) < planRank(user.plan)) {
+            // Downgrade: sonraki ay geçerli olacak
+            await pool.query(
+                'UPDATE users SET next_plan = ?, plan_change_date = ? WHERE id = ?',
+                [newPlan, nextMonthStr, userId]
+            );
+            return res.json({ message: 'Plan değişikliği sonraki ay geçerli olacak (downgrade)' });
+
+        } else {
+            return res.json({ message: 'Aynı plandasınız, değişiklik yapılmadı' });
+        }
+
+    } catch (error) {
+        console.error('Plan değiştirme hatası:', error);
+        res.status(500).json({ error: 'Plan güncellenemedi' });
+    }
+});
 
 
 
