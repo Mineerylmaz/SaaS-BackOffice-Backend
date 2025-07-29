@@ -43,19 +43,23 @@ router.post('/add-user', async (req, res) => {
             [email]
         );
         const [pricingRows] = await pool.query(
-            'SELECT name, roles FROM pricing WHERE name = ?',
+            `SELECT name, roles, rt_url_limit, static_url_limit, max_file_size FROM pricing WHERE name = ?`,
             [planToInsert]
         );
 
+
         let planObj = null;
         if (pricingRows.length > 0) {
+            const planRow = pricingRows[0];
             planObj = {
-                name: pricingRows[0].name,
-                roles: JSON.parse(pricingRows[0].roles)
+                name: planRow.name,
+                roles: JSON.parse(planRow.roles),
+                rt_url_limit: planRow.rt_url_limit,
+                static_url_limit: planRow.static_url_limit,
+                max_file_size: planRow.max_file_size,
             };
         }
 
-        // Default ayarları ekle
         const defaultSettings = {
             rt_urls: [],
             static_urls: [],
