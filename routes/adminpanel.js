@@ -169,10 +169,12 @@ router.put('/change-user-plan/:id', authenticateToken, async (req, res) => {
 
     try {
         const [[user]] = await pool.query('SELECT * FROM users WHERE id = ?', [userId]);
+        const now = new Date();
+        const nextMonthStartDate = new Date(now.getFullYear(), now.getMonth() + 1, 1);
 
         const planRank = (plan) => ({ Basic: 1, Pro: 2, Premium: 3 }[plan] || 0);
 
-        const now = new Date();
+
         const nowStr = now.toISOString().split('T')[0]; // YYYY-MM-DD
 
         // plan_end_date hesapla
@@ -198,7 +200,11 @@ router.put('/change-user-plan/:id', authenticateToken, async (req, res) => {
                 'UPDATE users SET next_plan = ?, plan_change_date = ? WHERE id = ?',
                 [newPlan, nextMonthStr, userId]
             );
-            return res.json({ message: 'Plan değişikliği sonraki ay geçerli olacak (downgrade)' });
+            return res.json({
+                message: "Plan değişikliği bir sonraki ay geçerli olacaktır.",
+                planChangeDate: nextMonthStartDate
+            });
+
 
         } else {
             return res.json({ message: 'Aynı plandasınız, değişiklik yapılmadı' });
