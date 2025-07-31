@@ -2,7 +2,6 @@ const express = require('express');
 const pool = require('../db');
 const router = express.Router();
 
-// JSON parse fonksiyonu - güvenli
 function safeParse(jsonString, fallback) {
     try {
         return JSON.parse(jsonString);
@@ -58,6 +57,37 @@ router.get('/active-plan', authenticateToken, async (req, res) => {
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
+
+router.put('/avatar', async (req, res) => {
+    const { userId, avatar } = req.body;
+    try {
+        await pool.query('UPDATE users SET avatar = ? WHERE id = ?', [avatar, userId]);
+        res.status(200).json({ message: 'Avatar güncellendi' });
+    } catch (err) {
+        console.error('Avatar güncelleme hatası:', err);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
+
+router.post('/users/delete-account', async (req, res) => {
+    const userId = req.body.userId;
+
+    const deletedAt = new Date();
+
+    try {
+        await pool.query(
+            'UPDATE users SET deleted_at = ? WHERE id = ?',
+            [deletedAt, userId]
+        );
+
+        res.json({ message: 'Hesap silme işlemi başlatıldı. 30 gün içinde geri dönebilirsiniz.' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
+
+
 
 
 

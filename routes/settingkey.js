@@ -24,8 +24,8 @@ router.post('/', async (req, res) => {
     try {
         const { key_name, type, description } = req.body;
         await pool.query(
-            'INSERT INTO setting_keys (key_name, type, description) VALUES (?, ?, ?)',
-            [key_name, type, description]
+            'INSERT INTO setting_keys (key_name, type, description, required) VALUES (?, ?, ?, ?)',
+            [key_name, type, description, required ?? false]
         );
 
         console.log("settings key isteği eklendi")

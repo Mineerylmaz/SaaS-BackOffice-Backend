@@ -46,7 +46,7 @@ router.put('/', authenticateToken, authorizeRole(['superadmin']), async (req, re
         for (const plan of pricingList) {
             console.log('Plan kaydediliyor:', plan);
             await pool.query(
-                'INSERT INTO pricing (name, price, features, rt_url_limit, static_url_limit, max_file_size,roles) VALUES (?, ?, ?, ?, ?, ?,?)',
+                'INSERT INTO pricing (name, price, features, rt_url_limit, static_url_limit, max_file_size, roles, credits) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
                 [
                     plan.name,
                     plan.price,
@@ -54,9 +54,12 @@ router.put('/', authenticateToken, authorizeRole(['superadmin']), async (req, re
                     plan.rt_url_limit || 0,
                     plan.static_url_limit || 0,
                     plan.max_file_size || 0,
-                    JSON.stringify(plan.roles || [])
+                    JSON.stringify(plan.roles || []),
+                    plan.credits || 0
                 ]
             );
+
+
 
         }
 

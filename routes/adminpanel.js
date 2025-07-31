@@ -12,9 +12,9 @@ function generateApiKey() {
 
 router.post('/add-user', async (req, res) => {
     try {
-        const { email, password, credits, role, roles } = req.body;
+        const { email, password, credits, role } = req.body;
 
-        if (!email || !password || !role || !roles) {
+        if (!email || !password || !role) {
             return res.status(400).json({ error: 'Eksik alan var!' });
         }
 
@@ -26,23 +26,15 @@ router.post('/add-user', async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-
-        let api_key = null;
-        if (role === 'developer') {
-            api_key = generateApiKey();
-        }
-
-        const [result] = await pool.query(
-            'INSERT INTO users (email, password_hash, credits, role,roles) VALUES (?, ?, ?, ?, ?)',
-            [email, hashedPassword, credits || 0, role, api_key]
+        await pool.query(
+            'INSERT INTO users (email, password_hash, credits, role) VALUES (?, ?, ?, ?)',
+            [email, hashedPassword, credits || 0, role]
         );
 
-        console.log(`Yeni kullanıcı eklendi: ${email} ${credits} ${role} API Key: ${api_key}`);
-
-        res.status(201).json({ message: 'Kullanıcı başarıyla eklendi', userId: result.insertId, api_key });
+        res.status(201).json({ message: 'Kullanıcı başarıyla eklendi' });
     } catch (error) {
         console.error('Add user error:', error);
-        res.status(500).json({ error: 'Bir hata oluştu' });
+        res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
 

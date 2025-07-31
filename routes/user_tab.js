@@ -4,7 +4,7 @@ const pool = require('../db');
 const authenticateToken = require('../middleware/authenticateToken');
 router.post('/', authenticateToken, async (req, res) => {
     const isSuperAdmin = req.user.role === 'superadmin';
-    // Eğer süper admin ise ve body'de user_id varsa onu al, yoksa kendi id'si
+
     const user_id = isSuperAdmin && req.body.user_id ? req.body.user_id : req.user.id;
     const settings = req.body.settings;
 

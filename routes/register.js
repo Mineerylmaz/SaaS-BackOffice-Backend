@@ -27,7 +27,7 @@ router.post('/add-user', async (req, res) => {
 
 
         //const planToInsert = typeof plan === 'object' ? plan?.name : plan || null;
-        const planToInsert = plan?.name || 'basic';
+        const planToInsert = plan?.name || null;
 
 
 
