@@ -13,6 +13,9 @@ const invitesRoutes = require('./routes/invites');
 const settingKeyRoutes = require('./routes/settingkey');
 const usertabRouter = require('./routes/user_tab');
 const proxyRouter = require('./routes/proxy');
+const busServiceRouter = require('./routes/busService');
+
+
 
 const path = require('path');
 const cron = require('node-cron');
@@ -160,6 +163,7 @@ app.use('/api/adminpanel', adminpanelRoutes)
 app.use('/api/userSettings', userSettingsRoutes);
 app.use('/api/setting-key', settingKeyRoutes);
 app.use('/api/proxy', proxyRouter);
+app.use('/api/busService', busServiceRouter);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/plans', priceRoutes);
 app.get('/', (req, res) => {
