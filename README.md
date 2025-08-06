@@ -23,7 +23,6 @@ Node.js ve Express.js tabanlı bu backend, SaaS Backoffice’in tüm iş mantı�
 - Kullanıcı kayıt ve giriş (şifre hash’leme ile)  
 - JWT tabanlı yetkilendirme ve kimlik doğrulama  
 - Abonelik planları için CRUD işlemleri  
-- Stripe ve PayPal gibi ödeme sağlayıcılarıyla entegrasyon  
 - Yönetici paneli ile kullanıcı ve plan yönetimi  
 - Gelişmiş hata yönetimi ve doğrulama (validation)  
 - Güvenli ve performanslı API tasarımı  
@@ -35,7 +34,6 @@ Node.js ve Express.js tabanlı bu backend, SaaS Backoffice’in tüm iş mantı�
 - ✅ Kullanıcı Kayıt & Giriş (Bcrypt ile güvenli şifreleme)  
 - ✅ JWT ile Yetkilendirme ve Kimlik Doğrulama  
 - ✅ Abonelik Planları CRUD İşlemleri  
-- ✅ Ödeme API Entegrasyonu (Stripe, PayPal)  
 - ✅ Yönetici Yetkileri ile Kullanıcı ve Plan Yönetimi  
 - ✅ Hata Yönetimi ve Validation  
 - ✅ Güvenli API Tasarımı  
@@ -44,33 +42,40 @@ Node.js ve Express.js tabanlı bu backend, SaaS Backoffice’in tüm iş mantı�
 
 ## Teknolojiler
 
-<div align="center" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 10px; margin-bottom: 10px;">
+<div align="center" style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 20px 0;">
 
-<span style="display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 12px; background-color: #339933; color: white; font-weight: 600; cursor: default;">
-  <img src="https://raw.githubusercontent.com/github/explore/main/topics/nodejs/nodejs.png" alt="Node.js" width="20" /> Node.js
-</span>
+  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #339933; color: white; font-weight: 600; box-shadow: 0 2px 8px rgb(51 153 51 / 0.3); cursor: default;">
+    <img src="https://raw.githubusercontent.com/github/explore/main/topics/nodejs/nodejs.png" alt="Node.js" width="24" />
+    Node.js
+  </div>
 
-<span style="display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 12px; background-color: #61dafb; color: black; font-weight: 600; cursor: default;">
-  <img src="https://raw.githubusercontent.com/github/explore/main/topics/react/react.png" alt="React" width="20" /> React
-</span>
+  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #61dafb; color: #20232a; font-weight: 600; box-shadow: 0 2px 8px rgb(97 218 251 / 0.5); cursor: default;">
+    <img src="https://raw.githubusercontent.com/github/explore/main/topics/react/react.png" alt="React" width="24" />
+    React
+  </div>
 
-<span style="display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 12px; background-color: #4479a1; color: white; font-weight: 600; cursor: default;">
-  <img src="https://raw.githubusercontent.com/github/explore/main/topics/mysql/mysql.png" alt="MySQL" width="20" /> MySQL
-</span>
+  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #4479a1; color: white; font-weight: 600; box-shadow: 0 2px 8px rgb(68 121 161 / 0.4); cursor: default;">
+    <img src="https://raw.githubusercontent.com/github/explore/main/topics/mysql/mysql.png" alt="MySQL" width="24" />
+    MySQL
+  </div>
 
-<span style="display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 12px; background-color: #d63031; color: white; font-weight: 600; cursor: default;">
-  <img src="https://raw.githubusercontent.com/github/explore/main/topics/jsonwebtoken/jsonwebtoken.png" alt="JWT" width="20" /> JWT
-</span>
+  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #d63031; color: white; font-weight: 600; box-shadow: 0 2px 8px rgb(214 48 49 / 0.4); cursor: default;">
+    <img src="https://raw.githubusercontent.com/auth0/node-jsonwebtoken/main/logo/logo.png" alt="JWT" width="24" />
+    JWT
+  </div>
 
-<span style="display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 12px; background-color: #f0ad4e; color: black; font-weight: 600; cursor: default;">
-  <img src="https://raw.githubusercontent.com/github/explore/main/topics/bcrypt/bcrypt.png" alt="Bcrypt" width="20" /> Bcrypt
-</span>
+  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #f0ad4e; color: #4a3c00; font-weight: 600; box-shadow: 0 2px 8px rgb(240 173 78 / 0.5); cursor: default;">
+    <img src="https://raw.githubusercontent.com/kelektiv/node.bcrypt.js/master/logo/bcrypt.png" alt="Bcrypt" width="24" />
+    Bcrypt
+  </div>
 
-<span style="display: flex; align-items: center; gap: 5px; padding: 5px 12px; border-radius: 12px; background-color: #000000; color: white; font-weight: 600; cursor: default;">
-  <img src="https://raw.githubusercontent.com/github/explore/main/topics/express/express.png" alt="Express.js" width="20" /> Express.js
-</span>
+  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #000000; color: white; font-weight: 600; box-shadow: 0 2px 8px rgb(0 0 0 / 0.5); cursor: default;">
+    <img src="https://raw.githubusercontent.com/github/explore/main/topics/express/express.png" alt="Express.js" width="24" />
+    Express.js
+  </div>
 
 </div>
+
 
 
 ---
