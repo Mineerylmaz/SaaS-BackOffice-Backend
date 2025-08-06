@@ -42,39 +42,12 @@ Node.js ve Express.js tabanlı bu backend, SaaS Backoffice’in tüm iş mantı�
 
 ## Teknolojiler
 
-<div align="center" style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 20px 0;">
-
-  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #339933; color: white; font-weight: 600; box-shadow: 0 2px 8px rgb(51 153 51 / 0.3); cursor: default;">
-    <img src="https://raw.githubusercontent.com/github/explore/main/topics/nodejs/nodejs.png" alt="Node.js" width="24" />
-    Node.js
-  </div>
-
-  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #61dafb; color: #20232a; font-weight: 600; box-shadow: 0 2px 8px rgb(97 218 251 / 0.5); cursor: default;">
-    <img src="https://raw.githubusercontent.com/github/explore/main/topics/react/react.png" alt="React" width="24" />
-    React
-  </div>
-
-  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #4479a1; color: white; font-weight: 600; box-shadow: 0 2px 8px rgb(68 121 161 / 0.4); cursor: default;">
-    <img src="https://raw.githubusercontent.com/github/explore/main/topics/mysql/mysql.png" alt="MySQL" width="24" />
-    MySQL
-  </div>
-
-  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #d63031; color: white; font-weight: 600; box-shadow: 0 2px 8px rgb(214 48 49 / 0.4); cursor: default;">
-    <img src="https://raw.githubusercontent.com/auth0/node-jsonwebtoken/main/logo/logo.png" alt="JWT" width="24" />
-    JWT
-  </div>
-
-  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #f0ad4e; color: #4a3c00; font-weight: 600; box-shadow: 0 2px 8px rgb(240 173 78 / 0.5); cursor: default;">
-    <img src="https://raw.githubusercontent.com/kelektiv/node.bcrypt.js/master/logo/bcrypt.png" alt="Bcrypt" width="24" />
-    Bcrypt
-  </div>
-
-  <div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 20px; background: #000000; color: white; font-weight: 600; box-shadow: 0 2px 8px rgb(0 0 0 / 0.5); cursor: default;">
-    <img src="https://raw.githubusercontent.com/github/explore/main/topics/express/express.png" alt="Express.js" width="24" />
-    Express.js
-  </div>
-
-</div>
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-D24949?style=flat&logo=JSON%20web%20tokens&logoColor=white)
+![Bcrypt](https://img.shields.io/badge/Bcrypt-F0AD4E?style=flat&logo=bcrypt&logoColor=black)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)
 
 
 
