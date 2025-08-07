@@ -1,13 +1,22 @@
 🚀 SaaS Backoffice Backend API
+## İçindekiler
+- [Proje Tanımı](#proje-tanımı)
+- [Özellikler](#özellikler)
+- [Teknolojiler](#teknolojiler)
+- [Proje Yapısı](#proje-yapısı)
+- [Kurulum & Çalıştırma](#Kurulum-Çalıştırma)
+- [ API Dokümantasyonu](#api-Dokümantasyonu)
+- [Kredi Yönetimi](#Kredi-Yönetimi)
+- [Projeyi Geliştirmek İster misiniz?](#Projeyi-Geliştirmek-İster-misiniz?)
 
-📌 Proje Tanımı
+ ## Proje Tanımı
 SaaS Backoffice Backend API, modern SaaS (Software as a Service) platformları için geliştirilen güçlü, esnek ve güvenilir bir backend altyapısıdır.
 Node.js ve Express.js ile inşa edilen bu API, kullanıcı yönetimi, abonelik sistemleri, ödeme ve yetkilendirme işlemlerini sorunsuz bir şekilde sağlar.
 
 Neden bu proje?
 Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güvenlik açısından kritik öneme sahiptir. Bu proje, gerçek dünya kullanım senaryoları ve ölçeklenebilirlik düşünülerek hazırlanmıştır.
 
-⚙️ Özellikler
+## ⚙️ Özellikler
 🔐 Güvenli Kullanıcı Yönetimi: Bcrypt ile güçlü şifre hash’leme
 
 🔑 JWT ile Yetkilendirme: API erişimlerini güvence altına alma
@@ -45,7 +54,7 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
   ![Bcrypt](https://img.shields.io/badge/Bcrypt-F0AD4E?style=flat&logo=bcrypt&logoColor=black)
 
 
-📁 Proje Yapısı
+## 📁 Proje Yapısı
 
 ├── controllers/       # İş mantığı ve fonksiyonlar
 ├── middleware/        # Yetkilendirme, hata yakalama vb.
@@ -56,7 +65,7 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
 ├── tests/             # Birim ve entegrasyon testleri
 ├── package.json       # Bağımlılıklar ve scriptler
 └── README.md          # Proje dokümantasyonu
-⚡ Kurulum & Çalıştırma
+## ⚡ Kurulum & Çalıştırma
 Gereksinimler
 Node.js v14+
 
@@ -86,7 +95,7 @@ Uygulamayı Başlatın:
 npm run start
 API, varsayılan olarak http://localhost:32807 adresinde çalışacaktır.
 
-🔍 API Dokümantasyonu (Örnek)
+## 🔍 API Dokümantasyonu (Örnek)
 Kullanıcı Kayıt
 
 POST /api/register
@@ -119,7 +128,7 @@ json
     "plan": "basic"
   }
 }
-📈 Kredi Yönetimi
+## 📈 Kredi Yönetimi
 Kullanıcıların abonelik planına göre kredileri takip edilir.
 
 Kredi kullanımı credits_logs tablosunda detaylı kayıt altına alınır.
