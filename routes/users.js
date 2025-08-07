@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('../db');
 const router = express.Router();
-
+const logger = require('../logger');
 function safeParse(jsonString, fallback) {
     try {
         return JSON.parse(jsonString);
@@ -10,26 +10,26 @@ function safeParse(jsonString, fallback) {
     }
 }
 
-// Örnek auth middleware (senin projene göre düzenle)
+
 function authenticateToken(req, res, next) {
-    console.log("burası")
+    logger.info("burası")
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
     if (!token) return res.sendStatus(401);
 
-    // jwt doğrulama (SECRET senin belirlediğin)
+
     const jwt = require('jsonwebtoken');
     const SECRET = process.env.JWT_SECRET;
 
     jwt.verify(token, SECRET, (err, user) => {
         if (err) return res.sendStatus(403);
-        console.log("user", user);
+        logger.info("user", user);
         req.user = user;
         next();
     });
 }
 
-// Kullanıcının aktif planını dönen endpoint (auth ile)
+
 router.get('/active-plan', authenticateToken, async (req, res) => {
     const userId = req.user.id;
 

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 const authenticateToken = require('../middleware/authenticateToken');
+const logger = require('../logger');
 router.post('/', authenticateToken, async (req, res) => {
     const isSuperAdmin = req.user.role === 'superadmin';
 

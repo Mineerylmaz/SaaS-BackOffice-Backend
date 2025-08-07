@@ -4,8 +4,7 @@ const pool = require('../db');
 const authorizeRole = require('../middleware/authorizeRole');
 const authenticateToken = require('../middleware/authenticateToken');
 const { v4: uuidv4 } = require('uuid');
-
-// Create invite (admin only)
+const logger = require('../logger');
 router.post('/', authenticateToken, authorizeRole(['admin', 'user', 'superadmin']), async (req, res) => {
     const inviterId = req.user.id;
     const { email, role } = req.body;
@@ -77,7 +76,7 @@ router.post("/accept", async (req, res) => {
         res.status(500).json({ error: "Sunucu hatası" });
     }
 });
-// Token ile invite bilgisi getirme
+
 router.get('/:token', async (req, res) => {
     const { token } = req.params;
 
@@ -99,7 +98,7 @@ router.get('/:token', async (req, res) => {
 });
 
 router.delete('/:email', authenticateToken, async (req, res) => {
-    console.log('delete işlemi başladı')
+    logger.info('delete işlemi başladı')
     const inviterId = req.user.id;
     const invitedEmail = req.params.email;
 
@@ -124,7 +123,6 @@ router.delete('/:email', authenticateToken, async (req, res) => {
 
 
 });
-// invites.js (Express router)
 router.get('/by-inviter/:inviterEmail', authenticateToken, async (req, res) => {
     const inviterEmail = req.params.inviterEmail;
 

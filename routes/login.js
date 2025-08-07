@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const pool = require('../db');
 const router = express.Router();
-
+const logger = require('../logger');
 const SECRET = process.env.JWT_SECRET;
 
 router.post('/login', async (req, res) => {
@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
         if (pricingRows.length > 0) {
             plan = {
                 name: pricingRows[0].name,
-                roles: JSON.parse(pricingRows[0].roles) // roles JSON.parse ile parse ediliyor
+                roles: JSON.parse(pricingRows[0].roles)
             };
         }
 

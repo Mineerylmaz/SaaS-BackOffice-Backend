@@ -1,6 +1,6 @@
 const express = require('express');
 
-
+const logger = require('../logger');
 
 const pool = require('../db');
 const config = require('../config');
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM setting_keys');
         res.json(rows);
-        console.log("settings key isteği geldi")
+        logger.info("settings key isteği geldi")
     } catch (err) {
         res.status(500).json({ error: 'Sunucu hatası' });
     }
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
             [key_name, type, description, required ?? false]
         );
 
-        console.log("settings key isteği eklendi")
+        logger.info("settings key isteği eklendi")
         res.json({ success: true });
     } catch (err) {
         res.status(500).json({ error: 'Sunucu hatası veya key zaten var' });

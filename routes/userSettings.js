@@ -1,10 +1,13 @@
 const restrictSuperadminUpdate = require('../middleware/restrictSuperadminUpdate');
-
+const crypto = require('crypto');
 const express = require('express');
 const router = express.Router();
 const pool = require('../db');
 const authenticateToken = require('../middleware/authenticateToken');
 const authorizeRole = require('../middleware/authorizeRole');
+const { mock_server_url } = require('../config');
+const logger = require('../logger');
+
 router.put('/profile/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user']), restrictSuperadminUpdate, async (req, res) => {
     const { userId } = req.params;
     const { email, notifications } = req.body;
@@ -14,7 +17,7 @@ router.put('/profile/:userId', authenticateToken, authorizeRole(['admin', 'edito
             'UPDATE users SET email = ?, notifications = ? WHERE id = ?',
             [email, notifications ? 1 : 0, userId]
         );
-        console.log('Email update result:', result);
+        logger.info('Email update result:', result);
         res.json({ success: true });
     } catch (err) {
         console.error(err);
@@ -23,32 +26,6 @@ router.put('/profile/:userId', authenticateToken, authorizeRole(['admin', 'edito
 });
 const bcrypt = require('bcrypt');
 
-router.put('/password/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user']), restrictSuperadminUpdate, async (req, res) => {
-    const { userId } = req.params;
-    const { oldPassword, newPassword } = req.body;
-
-    try {
-
-        const [rows] = await pool.query('SELECT password_hash FROM users WHERE id = ?', [userId]);
-        if (rows.length === 0) {
-            return res.status(404).json({ error: 'Kullanıcı bulunamadı' });
-        }
-
-        const valid = await bcrypt.compare(oldPassword, rows[0].password_hash);
-        if (!valid) {
-            return res.status(400).json({ error: 'Eski şifre hatalı' });
-        }
-
-
-        const newHash = await bcrypt.hash(newPassword, 10);
-        await pool.query('UPDATE users SET password_hash = ? WHERE id = ?', [newHash, userId]);
-
-        res.json({ success: true });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ error: 'Sunucu hatası' });
-    }
-});
 
 
 
@@ -100,30 +77,71 @@ router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'edit
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
+
+
+
+
 router.get('/urlResults/:userId', async (req, res) => {
     const { userId } = req.params;
-    const { start, end } = req.query;
 
     try {
-        let query = `
-          SELECT us.id, us.name, us.url, us.type, us.response_time AS responseTime, us.status, us.checked_at AS checkedAt, us.error_message AS errorMessage
-          FROM url_status us
-          LEFT JOIN deleted_urls du ON us.user_id = du.user_id AND us.url = du.url
-          WHERE us.user_id = ? AND du.url IS NULL
-        `;
-        const params = [userId];
-
-        if (start && end) {
-            query += ` AND us.checked_at BETWEEN ? AND ?`;
-            params.push(start, end);
+        const [settingsRows] = await pool.query('SELECT settings FROM user_settings WHERE user_id = ?', [userId]);
+        if (!settingsRows.length) {
+            return res.status(404).json({ error: 'Kullanıcı ayarları bulunamadı' });
         }
 
-        query += ` ORDER BY us.checked_at DESC`;
+        const settings = (settingsRows[0].settings || '{}');
+        const urls = [
+            ...(settings.rt_urls || []),
+            ...(settings.static_urls || [])
+        ];
 
-        const [rows] = await pool.query(query, params);
-        res.json(rows);
+        if (urls.length === 0) {
+            return res.json({ data: [] });
+        }
+
+        const results = await Promise.all(urls.map(async (entry) => {
+            try {
+                const response = await fetch(mock_server_url);
+                const text = await response.text();
+                logger.info('Mock sunucudan gelen ham cevap:', text);
+
+                let data;
+                try {
+                    data = JSON.parse(text);
+                } catch (e) {
+                    console.error('JSON parse hatası:', text);
+                    data = {};
+                }
+
+                return {
+                    id: crypto.randomUUID(),
+                    name: entry.name || 'Başlıksız',
+                    url: entry.url,
+                    type: entry.type || 'unknown',
+                    responseTime: data.responseTime || Math.floor(Math.random() * 500),
+                    status: data.status || 'error',
+                    errorMessage: data.status === 'error' ? data.message || 'Bilinmeyen hata' : null,
+                    checkedAt: data.checkedAt || new Date().toISOString()
+                };
+            } catch (err) {
+                console.error('Fetch hatası:', err);
+                return {
+                    id: crypto.randomUUID(),
+                    name: entry.name || 'Başlıksız',
+                    url: entry.url,
+                    type: entry.type || 'unknown',
+                    responseTime: null,
+                    status: 'error',
+                    errorMessage: 'Mock çağrısı başarısız',
+                    checkedAt: new Date().toISOString()
+                };
+            }
+        }));
+
+        res.json(results);
     } catch (err) {
-        console.error(err);
+        console.error('Mock çağrıları sırasında hata:', err);
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
@@ -188,7 +206,7 @@ router.delete('/settings/url/:userId', authenticateToken, authorizeRole(['admin'
 
         await pool.query('UPDATE user_settings SET settings = ? WHERE user_id = ?', [JSON.stringify(settings), userId]);
         await pool.query('INSERT INTO deleted_urls (user_id, url, type, deleted_at) VALUES (?, ?, ?, NOW())', [userId, url, type]);
-        console.log('Deleted URL kayıt ediliyor:', { userId, url, type });
+        logger.info('Deleted URL kayıt ediliyor:', { userId, url, type });
 
 
         res.json({ success: true, settings });

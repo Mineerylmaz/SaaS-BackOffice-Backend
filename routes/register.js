@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const pool = require('../db');
 const config = require('../config');
 const router = express.Router();
+const logger = require('../logger');
 require('dotenv').config();
 router.post('/add-user', async (req, res) => {
     try {
@@ -13,7 +14,7 @@ router.post('/add-user', async (req, res) => {
             return res.status(400).json({ error: 'Eksik alan var!' });
         }
 
-        console.log('Register geldi:', { firstname, lastname, email, plan, role });
+        logger.info('Register geldi:', { firstname, lastname, email, plan, role });
 
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -37,7 +38,7 @@ router.post('/add-user', async (req, res) => {
         );
 
 
-        console.log(`Yeni kullanıcı eklendi: ${firstname} ${lastname} ${email} ${planToInsert} ${roleToInsert}`);
+        logger.info(`Yeni kullanıcı eklendi: ${firstname} ${lastname} ${email} ${planToInsert} ${roleToInsert}`);
         await pool.query(
             "UPDATE invites SET status = 'kabul edildi' WHERE email = ? AND status = 'bekliyor'",
             [email]

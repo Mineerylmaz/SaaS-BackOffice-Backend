@@ -1,46 +1,75 @@
 const express = require('express');
 const axios = require('axios');
-const pool = require('../db');
-const authenticateToken = require('../middleware/authenticateToken');
-
 const router = express.Router();
+const { mock_server_parametreler, funcToExternalUrl } = require('../config');
+const logger = require('../logger');
 
-const funcToExternalUrl = {
-    getclosestbusV3: 'https://b64d0781-d2a7-45c5-b0e6-1f05feac3227.mock.pstmn.io',
-    getroutes: 'https://6dce4ff4-c9e5-40cb-9253-91d3f463d50b.mock.pstmn.io',
-    getrouteinfonew: 'https://3d2fa084-8e5b-40d1-bde5-383b31651801.mock.pstmn.io',
+async function fetchParamSchema() {
+    try {
+        const response = await axios.get(mock_server_parametreler);
+        return response.data;
+    } catch (error) {
+        console.error("Parametre şeması alınamadı:", error.message);
+        return {};
+    }
+}
 
-};
+// Zorunlu parametreleri kontrol et
+function validateParams(func, query, paramSchema) {
+    const schema = paramSchema[func];
+    if (!schema) {
+        console.log("Şema bulunamadı. Gelen func:", func);
+        return `Func "${func}" için şema bulunamadı`;
+    }
 
-router.get('/PassengerInformationServices/Bus', authenticateToken, async (req, res) => {
-    const userId = req.user.id;
-    const { func, systemid, stopid, lang } = req.query;
 
-    if (!func || !systemid || !stopid || !lang) {
-        return res.status(400).json({ error: 'Eksik parametre' });
+    for (const { field, req } of schema.params) {
+        if (req && !query[field]) {
+            return `${field} parametresi zorunlu`;
+        }
+    }
+
+    return null; // Her şey tamam
+}
+
+// Route
+router.get('/PassengerInformationServices/Bus', async (req, res) => {
+    const { func, ...query } = req.query;
+
+    if (!func) {
+        return res.status(400).json({ error: 'func parametresi zorunlu' });
     }
 
     try {
-        const baseUrl = funcToExternalUrl[func];
+        const schemas = await fetchParamSchema();
+
+        const error = validateParams(func, query, schemas);
+        if (error) return res.status(400).json({ error });
+
+        let baseUrl = funcToExternalUrl[func];
         if (!baseUrl) {
-            return res.status(400).json({ error: 'Bilinmeyen func parametresi' });
+            return res.status(400).json({ error: 'Geçersiz func' });
         }
 
-        const externalUrl = `${baseUrl}/PassengerInformationServices/Bus?func=${func}&systemid=${systemid}&stopid=${stopid}&lang=${lang}`;
-        const response = await axios.get(externalUrl);
+        // Mevcut URL'ye ek parametreleri query string olarak ekle
+        const schemaParams = schemas[func].params;
+        for (const { field } of schemaParams) {
+            const val = query[field];
+            if (val !== undefined) {
+                baseUrl += `&${field}=${encodeURIComponent(val)}`;
+            }
+        }
 
-        console.log('DB ye kayıt atılıyor:', userId, externalUrl, JSON.stringify(response.data));
-        await pool.query(
-            'INSERT INTO api_responses (user_id, url, response_body, created_at) VALUES (?, ?, ?, NOW())',
-            [userId, externalUrl, JSON.stringify(response.data)]
-        );
-        console.log('Kayıt atıldı.');
+        // Dış isteği at
+        const response = await axios.get(baseUrl);
+        console.log("Gelen func:", func);
+        console.log("Şemadaki func'lar:", Object.keys(schemas));
 
-        return res.json(response.data);
+        res.json(response.data);
 
-    } catch (error) {
-        console.error('Hata:', error.message || error);
-        return res.status(500).json({ error: 'Dış servise erişimde hata oluştu.' });
+    } catch (err) {
+        console.error("Sunucu hatası:", err.message);
+        res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
 

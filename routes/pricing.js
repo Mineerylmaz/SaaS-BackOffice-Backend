@@ -3,6 +3,7 @@ const router = express.Router();
 const pool = require('../db');
 const authenticateToken = require('../middleware/authenticateToken');
 const authorizeRole = require('../middleware/authorizeRole');
+const logger = require('../logger');
 router.get('/', async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM pricing');
@@ -10,6 +11,8 @@ router.get('/', async (req, res) => {
 
         const parsedRows = rows.map((row) => {
             let roles = row.roles;
+            let metotlar = row.metotlar;
+
 
             if (typeof roles === 'string') {
                 try {
@@ -20,9 +23,20 @@ router.get('/', async (req, res) => {
                 }
             }
 
+            if (typeof metotlar === 'string') {
+                try {
+                    metotlar = JSON.parse(metotlar);
+                } catch (e) {
+                    console.warn(`metotlar parse edilemedi: ${metotlar}`);
+                    methods = [];
+                }
+            }
+
+
             return {
                 ...row,
-                roles: roles
+                roles: roles,
+                metotlar,
             };
         });
 
@@ -44,9 +58,9 @@ router.put('/', authenticateToken, authorizeRole(['superadmin']), async (req, re
 
 
         for (const plan of pricingList) {
-            console.log('Plan kaydediliyor:', plan);
+            logger.info('Plan kaydediliyor:', plan);
             await pool.query(
-                'INSERT INTO pricing (name, price, features, rt_url_limit, static_url_limit, max_file_size, roles, credits) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+                'INSERT INTO pricing (name, price, features, rt_url_limit, static_url_limit, max_file_size, roles, credits,metotlar) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)',
                 [
                     plan.name,
                     plan.price,
@@ -55,7 +69,8 @@ router.put('/', authenticateToken, authorizeRole(['superadmin']), async (req, re
                     plan.static_url_limit || 0,
                     plan.max_file_size || 0,
                     JSON.stringify(plan.roles || []),
-                    plan.credits || 0
+                    plan.credits || 0,
+                    JSON.stringify(plan.metotlar || [])
                 ]
             );
 

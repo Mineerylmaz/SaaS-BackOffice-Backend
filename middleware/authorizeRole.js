@@ -1,11 +1,11 @@
-
+const logger = require('../logger');
 function authorizeRole(allowedRoles = []) {
     return (req, res, next) => {
-        console.log("allowedRoles", allowedRoles)
-        console.log("req", req)
+        logger.info("allowedRoles", allowedRoles)
+        logger.info("req", req)
 
         const userRole = req.user.role;
-        console.log("userRole", userRole)
+        logger.info("userRole", userRole)
 
         if (!allowedRoles.includes(userRole)) {
             return res.status(403).json({ error: 'Bu işlemi yapma yetkiniz yok' });

@@ -5,7 +5,7 @@ const pool = require('../db');
 const router = express.Router();
 const authenticateToken = require('../middleware/authenticateToken');
 const crypto = require('crypto');
-
+const logger = require('../logger');
 function generateApiKey() {
     return crypto.randomBytes(20).toString('hex');
 }
@@ -89,8 +89,8 @@ router.put('/update-user-plan/:id', async (req, res) => {
     const userId = req.params.id;
     const { plan } = req.body;
 
-    console.log('Update plan için gelen userId:', userId);
-    console.log('Gelen plan:', plan);
+    logger.info('Update plan için gelen userId:', userId);
+    logger.info('Gelen plan:', plan);
 
     if (!plan) {
         return res.status(400).json({ error: 'Plan bilgisi eksik' });
@@ -112,7 +112,7 @@ router.put('/update-user-plan/:id', async (req, res) => {
             [plan, api_key, userId]
         );
 
-        console.log('UPDATE sonucu:', result);
+        logger.info('UPDATE sonucu:', result);
 
         if (result.affectedRows === 0) {
             return res.status(404).json({ error: 'Kullanıcı bulunamadı' });
@@ -128,7 +128,7 @@ router.put('/update-user-plan/:id', async (req, res) => {
 
 router.put('/update-user-roles/:id', async (req, res) => {
     const userId = req.params.id;
-    const { roles } = req.body; // roles array bekliyoruz
+    const { roles } = req.body;
 
     if (!roles) {
         return res.status(400).json({ error: 'Roles alanı gerekli' });
@@ -167,9 +167,7 @@ router.put('/change-user-plan/:id', authenticateToken, async (req, res) => {
         const planRank = (plan) => ({ Basic: 1, Pro: 2, Premium: 3 }[plan] || 0);
 
 
-        const nowStr = now.toISOString().split('T')[0]; // YYYY-MM-DD
-
-        // plan_end_date hesapla
+        const nowStr = now.toISOString().split('T')[0];
         const planEndDate = new Date(now);
         planEndDate.setDate(planEndDate.getDate() + 30);
         const planEndDateStr = planEndDate.toISOString().split('T')[0];
@@ -179,7 +177,7 @@ router.put('/change-user-plan/:id', authenticateToken, async (req, res) => {
         const nextMonthStr = nextMonth.toISOString().split('T')[0];
 
         if (planRank(newPlan) > planRank(user.plan)) {
-            // Upgrade: hemen geç, plan_start_date ve plan_end_date ekle
+
             await pool.query(
                 'UPDATE users SET plan = ?, plan_start_date = ?, plan_end_date = ?, next_plan = NULL, plan_change_date = NULL WHERE id = ?',
                 [newPlan, nowStr, planEndDateStr, userId]
@@ -187,7 +185,7 @@ router.put('/change-user-plan/:id', authenticateToken, async (req, res) => {
             return res.json({ message: 'Planınız yükseltildi ve hemen aktif oldu.' });
 
         } else if (planRank(newPlan) < planRank(user.plan)) {
-            // Downgrade: sonraki ay geçerli olacak
+
             await pool.query(
                 'UPDATE users SET next_plan = ?, plan_change_date = ? WHERE id = ?',
                 [newPlan, nextMonthStr, userId]
