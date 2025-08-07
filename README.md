@@ -16,7 +16,7 @@ Node.js ve Express.js ile inşa edilen bu API, kullanıcı yönetimi, abonelik s
 Neden bu proje?
 Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güvenlik açısından kritik öneme sahiptir. Bu proje, gerçek dünya kullanım senaryoları ve ölçeklenebilirlik düşünülerek hazırlanmıştır.
 
-## ⚙️ Özellikler
+##  Özellikler
 🔐 Güvenli Kullanıcı Yönetimi: Bcrypt ile güçlü şifre hash’leme
 
 🔑 JWT ile Yetkilendirme: API erişimlerini güvence altına alma
@@ -31,7 +31,7 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
 
 📈 Kredi ve Kullanım Takibi: Planlara göre detaylı kredi yönetimi
 
-## 🛠️ Teknolojiler
+##  Teknolojiler
 
 - **Node.js**  
   Sunucu tarafı JavaScript çalışma zamanı  
@@ -54,7 +54,7 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
   ![Bcrypt](https://img.shields.io/badge/Bcrypt-F0AD4E?style=flat&logo=bcrypt&logoColor=black)
 
 
-## 📁 Proje Yapısı
+##  Proje Yapısı
 
 ├── controllers/       # İş mantığı ve fonksiyonlar
 ├── middleware/        # Yetkilendirme, hata yakalama vb.
@@ -65,7 +65,7 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
 ├── tests/             # Birim ve entegrasyon testleri
 ├── package.json       # Bağımlılıklar ve scriptler
 └── README.md          # Proje dokümantasyonu
-## ⚡ Kurulum & Çalıştırma
+##  Kurulum & Çalıştırma
 Gereksinimler
 Node.js v14+
 
@@ -95,7 +95,7 @@ Uygulamayı Başlatın:
 npm run start
 API, varsayılan olarak http://localhost:32807 adresinde çalışacaktır.
 
-## 🔍 API Dokümantasyonu (Örnek)
+## API Dokümantasyonu (Örnek)
 Kullanıcı Kayıt
 
 POST /api/register
@@ -128,7 +128,7 @@ json
     "plan": "basic"
   }
 }
-## 📈 Kredi Yönetimi
+##  Kredi Yönetimi
 Kullanıcıların abonelik planına göre kredileri takip edilir.
 
 Kredi kullanımı credits_logs tablosunda detaylı kayıt altına alınır.
@@ -141,7 +141,7 @@ Mine Eryılmaz	https://github.com/Mineerylmaz	Mineerylmaz
 
 
 
-🎯 Projeyi Geliştirmek İster misiniz?
+## Projeyi Geliştirmek İster misiniz?
 Yeni abonelik planları ekleyin
 
 API'yi mikroservis mimarisi ile ölçeklendirin
