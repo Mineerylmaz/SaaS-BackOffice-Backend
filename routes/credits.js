@@ -25,7 +25,7 @@ router.get('/status', authenticateToken, async (req, res) => {
 
         const [[creditUsage]] = await pool.query(
             `SELECT SUM(credit_used) AS used_credits
-             FROM credits_logs
+             FROM credits_info
              WHERE user_id = ? AND timestamp >= ?`,
             [userId, user.plan_start_date]
         );
@@ -36,6 +36,8 @@ router.get('/status', authenticateToken, async (req, res) => {
             isLimited: usedCredits >= creditLimit,
             usedCredits,
             creditLimit,
+
+            remainingCredits: creditLimit - usedCredits,
         });
     } catch (err) {
         console.error('Kredi durumu alınamadı:', err);
@@ -63,7 +65,7 @@ router.post('/use', authenticateToken, async (req, res) => {
         const creditLimit = planInfo?.credits || 0;
 
         const [[usage]] = await pool.query(
-            'SELECT SUM(credit_used) as used FROM credits_logs WHERE user_id = ? AND timestamp >= ?',
+            'SELECT SUM(credit_used) as used FROM credits_info WHERE user_id = ? AND timestamp >= ?',
             [userId, user.plan_start_date]
         );
 
@@ -74,7 +76,7 @@ router.post('/use', authenticateToken, async (req, res) => {
         }
 
         await pool.query(
-            'INSERT INTO credits_logs (user_id, url, timestamp, credit_used) VALUES (?, ?, NOW(), ?)',
+            'INSERT INTO credits_info (user_id, url, timestamp, credit_used) VALUES (?, ?, NOW(), ?)',
             [userId, url, 1]
         );
 
@@ -84,8 +86,96 @@ router.post('/use', authenticateToken, async (req, res) => {
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
+router.post('/decrease', authenticateToken, async (req, res) => {
+    const requester = req.user;
 
 
+    if (requester.role !== 'superadmin') {
+        return res.status(403).json({ error: 'Yetkisiz erişim' });
+    }
+
+    const { targetUserId, url = 'internal-superadmin' } = req.body;
+
+    if (!targetUserId) {
+        return res.status(400).json({ error: 'Hedef kullanıcı ID gerekli' });
+    }
+
+    try {
+        const [[user]] = await pool.query(
+            'SELECT plan, plan_start_date FROM users WHERE id = ?',
+            [targetUserId]
+        );
+
+        if (!user) {
+            return res.status(404).json({ error: 'Hedef kullanıcı bulunamadı' });
+        }
+
+
+        await pool.query(
+            'INSERT INTO credits_info (user_id, url, timestamp, credit_used) VALUES (?, ?, NOW(), ?)',
+            [targetUserId, url, 1]
+        );
+
+        res.status(200).json({ message: `Kredi düşürüldü. targetUserId: ${targetUserId}` });
+    } catch (err) {
+        console.error('Internal kredi düşürme hatası:', err);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
+
+router.get('/admin/status/:userId', authenticateToken, async (req, res) => {
+    const requester = req.user;
+    const targetUserId = req.params.userId;
+
+
+    if (requester.role !== 'superadmin') {
+        return res.status(403).json({ error: 'Yetkisiz erişim' });
+    }
+    try {
+        const [[user]] = await pool.query(
+            'SELECT plan, plan_start_date FROM users WHERE id = ?',
+            [targetUserId]
+        );
+
+        if (!user) {
+            return res.status(404).json({ error: 'Kullanıcı bulunamadı' });
+        }
+
+        const [[planInfo]] = await pool.query(
+            'SELECT credits FROM pricing WHERE name = ?',
+            [user.plan]
+        );
+
+        const creditLimit = planInfo?.credits || 0;
+
+        const [[creditUsage]] = await pool.query(
+            `SELECT SUM(credit_used) AS used_credits
+             FROM credits_info
+             WHERE user_id = ? AND timestamp >= ?`,
+            [targetUserId, user.plan_start_date]
+        );
+
+        const usedCredits = creditUsage?.used_credits || 0;
+
+        const remainingCredits = creditLimit - usedCredits;
+
+
+        await pool.query(
+            'UPDATE users SET remaining_credits = ? WHERE id = ?',
+            [remainingCredits, targetUserId]
+        );
+
+        res.json({
+            userId: targetUserId,
+            usedCredits,
+            creditLimit,
+            remainingCredits
+        });
+    } catch (err) {
+        console.error('Admin kredi durumu hatası:', err);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
 
 
 

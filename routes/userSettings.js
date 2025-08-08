@@ -33,6 +33,16 @@ const bcrypt = require('bcrypt');
 
 router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user', 'superadmin']), restrictSuperadminUpdate, async (req, res) => {
     const { userId } = req.params;
+    const [customInputsRows] = await pool.query(
+        'SELECT key_name, value FROM user_tab WHERE user_id = ?',
+        [userId]
+    );
+
+    const customInputs = {};
+    customInputsRows.forEach(row => {
+        customInputs[row.key_name] = row.value;
+    });
+
     try {
         const [rows] = await pool.query(`
   SELECT 
@@ -70,7 +80,9 @@ router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'edit
                 max_file_size: row.max_file_size,
                 roles: row.roles
             },
+            customInputs
         });
+
 
     } catch (error) {
         console.error(error);

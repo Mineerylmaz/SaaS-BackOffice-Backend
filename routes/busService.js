@@ -14,7 +14,7 @@ async function fetchParamSchema() {
     }
 }
 
-// Zorunlu parametreleri kontrol et
+
 function validateParams(func, query, paramSchema) {
     const schema = paramSchema[func];
     if (!schema) {
@@ -29,10 +29,9 @@ function validateParams(func, query, paramSchema) {
         }
     }
 
-    return null; // Her şey tamam
+    return null;
 }
 
-// Route
 router.get('/PassengerInformationServices/Bus', async (req, res) => {
     const { func, ...query } = req.query;
 
@@ -51,7 +50,7 @@ router.get('/PassengerInformationServices/Bus', async (req, res) => {
             return res.status(400).json({ error: 'Geçersiz func' });
         }
 
-        // Mevcut URL'ye ek parametreleri query string olarak ekle
+
         const schemaParams = schemas[func].params;
         for (const { field } of schemaParams) {
             const val = query[field];
@@ -60,7 +59,6 @@ router.get('/PassengerInformationServices/Bus', async (req, res) => {
             }
         }
 
-        // Dış isteği at
         const response = await axios.get(baseUrl);
         console.log("Gelen func:", func);
         console.log("Şemadaki func'lar:", Object.keys(schemas));

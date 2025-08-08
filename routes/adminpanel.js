@@ -41,16 +41,38 @@ router.post('/add-user', async (req, res) => {
 router.get('/list-users', async (req, res) => {
     try {
         const [rows] = await pool.query(`
-            SELECT u.id, u.email, u.credits, u.roles, u.plan, u.api_key, u.last_login, u.created_at,
+            SELECT u.id, u.email, u.plan, u.plan_start_date, u.api_key, u.last_login, u.created_at,
                    us.settings
             FROM users u
             LEFT JOIN user_settings us ON u.id = us.user_id
             WHERE u.deleted = FALSE
         `);
 
-        const users = rows.map(user => ({
-            ...user,
-            settings: user.settings || {}
+        const users = await Promise.all(rows.map(async user => {
+
+            const [[planInfo]] = await pool.query(
+                'SELECT credits FROM pricing WHERE name = ?',
+                [user.plan]
+            );
+            const totalCredits = planInfo?.credits || 0;
+
+
+            const [[creditLog]] = await pool.query(
+                `SELECT SUM(credit_used) AS used FROM credits_info 
+                 WHERE user_id = ? AND timestamp >= ?`,
+                [user.id, user.plan_start_date]
+            );
+            const usedCredits = creditLog?.used || 0;
+
+            const remainingCredits = totalCredits - usedCredits;
+
+            return {
+                ...user,
+                settings: user.settings || {},
+                totalCredits,
+                usedCredits,
+                remainingCredits
+            };
         }));
 
         res.json(users);
@@ -59,6 +81,7 @@ router.get('/list-users', async (req, res) => {
         res.status(500).json({ error: 'Kullanıcılar alınamadı' });
     }
 });
+
 
 
 router.delete('/delete-user/:id', async (req, res) => {
