@@ -15,18 +15,19 @@ router.post('/login', async (req, res) => {
 
     try {
         const [rows] = await pool.query(
-            'SELECT id, email, password_hash, role, plan, plan_start_date, plan_end_date, avatar FROM users WHERE email = ?',
+            'SELECT id, email, password_hash, role, plan, plan_start_date, plan_end_date, avatar, deleted FROM users WHERE email = ?',
             [email]
         );
 
-
-
         const user = rows[0];
-
-
 
         if (!user) {
             return res.status(401).json({ error: 'Kullanıcı bulunamadı' });
+        }
+
+
+        if (user.deleted === 1) {
+            return res.status(403).json({ error: 'Bu kullanıcı silinmiş.' });
         }
 
         const match = await bcrypt.compare(password, user.password_hash);
@@ -43,6 +44,15 @@ router.post('/login', async (req, res) => {
             'SELECT name, roles FROM pricing WHERE name = ?',
             [user.plan]
         );
+        const [userTabRows] = await pool.query(
+            'SELECT key_name, value FROM user_tab WHERE user_id = ?',
+            [user.id]
+        );
+        const customInputValues = {};
+        userTabRows.forEach(row => {
+            customInputValues[row.key_name] = row.value;
+        });
+
 
         let plan = null;
         if (pricingRows.length > 0) {
@@ -62,11 +72,12 @@ router.post('/login', async (req, res) => {
             id: user.id,
             email: user.email,
             role: user.role,
-            plan: plan,
+            plan: plan || null,
             token: token,
             plan_start_date: user.plan_start_date,
             plan_end_date: user.plan_end_date,
             avatar: user.avatar,
+            customInputValues: customInputValues
         });
     } catch (error) {
         console.error('Login error:', error);

@@ -12,7 +12,7 @@ function generateApiKey() {
 
 router.post('/add-user', async (req, res) => {
     try {
-        const { email, password, credits, role } = req.body;
+        const { email, password, role } = req.body;
 
         if (!email || !password || !role) {
             return res.status(400).json({ error: 'Eksik alan var!' });
@@ -27,8 +27,8 @@ router.post('/add-user', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
 
         await pool.query(
-            'INSERT INTO users (email, password_hash, credits, role) VALUES (?, ?, ?, ?)',
-            [email, hashedPassword, credits || 0, role]
+            'INSERT INTO users (email, password_hash, role) VALUES ( ?, ?, ?)',
+            [email, hashedPassword, role]
         );
 
         res.status(201).json({ message: 'Kullanıcı başarıyla eklendi' });
@@ -97,7 +97,7 @@ router.delete('/delete-user/:id', async (req, res) => {
 
 router.get('/deleted-users', async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT id, email, credits, role, last_login, created_at FROM users WHERE deleted = TRUE');
+        const [rows] = await pool.query('SELECT id, email, role, last_login, created_at FROM users WHERE deleted = TRUE');
         res.json(rows);
     } catch (error) {
         console.error(error);
