@@ -4,10 +4,12 @@
 - [Özellikler](#özellikler)
 - [Teknolojiler](#teknolojiler)
 - [Proje Yapısı](#proje-yapısı)
-- [Kurulum & Çalıştırma](#Kurulum-Çalıştırma)
-- [ API Dokümantasyonu](#api-Dokümantasyonu)
-- [Kredi Yönetimi](#Kredi-Yönetimi)
-- [Projeyi Geliştirmek İster misiniz?](#Projeyi-Geliştirmek-İster-misiniz?)
+- [Kurulum & Çalıştırma](#kurulum--çalıştırma)
+- [Veritabanı Migration](#veritabanı-migration)
+- [API Dokümantasyonu](#api-dokümantasyonu)
+- [Kredi Yönetimi](#kredi-yönetimi)
+- [Projeyi Geliştirmek İster misiniz?](#projeyi-geliştirmek-ister-misiniz)
+
 
  ## Proje Tanımı
 SaaS Backoffice Backend API, modern SaaS (Software as a Service) platformları için geliştirilen güçlü, esnek ve güvenilir bir backend altyapısıdır.
@@ -79,23 +81,32 @@ Depoyu Klonlayın:
 
 git clone https://github.com/Mineerylmaz/SaaS-BackOffice-Backend.git
 cd SaaS-BackOffice-Backend
+
 Bağımlılıkları Yükleyin:
-
-
 npm install
+
 Ortam Değişkenlerini Ayarlayın:
 .env dosyası oluşturup kendi ortamınıza göre düzenleyin.
+DB_HOST=localhost
+DB_USER=kullaniciadi
+DB_PASSWORD=sifre
+DB_NAME=veritabaniadi
+DB_PORT=3306
 
-Veritabanı Yapısını Oluşturun:
-MySQL üzerinde tabloları oluşturun.
+
+## Veritabanı Migration
+Migration işlemleri için knex.js kullanıyoruz.
+Projeyi klonlayan kişinin yapması gereken tek şey:
+npx knex migrate:latest
+Bu komut, migrations/ klasöründeki tüm migration dosyalarını sırayla çalıştırarak MySQL veritabanınızda tabloları sıfırdan oluşturacaktır.
+Varolan tablolar varsa üzerine yazmaz, hata vermez.
+Not: Eğer knex komutu bulunmazsa ya da hata alırsanız, proje dizinindeyken bağımlılıkların tam yüklü olduğundan emin olun (npm install).
 
 Uygulamayı Başlatın:
-
-
 npm run start
 API, varsayılan olarak http://localhost:32807 adresinde çalışacaktır.
 
-## API Dokümantasyonu (Örnek)
+## API Dokümantasyonu
 Kullanıcı Kayıt
 
 POST /api/register
