@@ -35,7 +35,7 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
 
 ##  Teknolojiler
 
-- **Node.js**  
+- **Node.js**  >= 18.x
   Sunucu tarafı JavaScript çalışma zamanı  
   ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
 
@@ -43,7 +43,7 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
   Minimal ve esnek web uygulama framework'ü  
   ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)
 
-- **MySQL**  
+- **MySQL**   8.0.x (mysql2 ile test edilmiştir)
   Güçlü ilişkisel veritabanı sistemi  
   ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
 
