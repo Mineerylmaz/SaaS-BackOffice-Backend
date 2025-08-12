@@ -10520,3 +10520,21 @@
 [90m2025-08-12 15:29:21[39m [[35minfo[39m] settings key isteği geldi
 [90m2025-08-12 15:37:04[39m [[35minfo[39m] JWT_SECRET config test:
 [90m2025-08-12 15:37:04[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 17:30:10[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 17:30:10[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] req
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] userRole
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] req
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] userRole
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] req
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] userRole
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] req
+[90m2025-08-12 17:30:39[39m [[35minfo[39m] userRole
+[90m2025-08-12 17:30:40[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 17:30:40[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 17:31:44[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 17:31:44[39m [[35minfo[39m]  Server http://localhost:32807

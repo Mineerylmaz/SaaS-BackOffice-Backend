@@ -1,9 +1,9 @@
 require('dotenv').config();
-
+const basefuncurl = process.env.PIS_BASE_FUNC_URL;
 const funcToExternalUrl = {
-    getclosestbusV3: process.env.FUNC_GETCLOSESTBUSV3 || null,
-    getroutes: process.env.FUNC_GETROUTES || null,
-    getrouteinfonew: process.env.FUNC_GETROUTEINFONEW || null,
+    getclosestbusV3: basefuncurl + process.env.FUNC_GETCLOSESTBUSV3 || null,
+    getroutes: basefuncurl + process.env.FUNC_GETROUTES || null,
+    getrouteinfonew: basefuncurl + process.env.FUNC_GETROUTEINFONEW || null,
 };
 module.exports = {
     db: {
@@ -20,9 +20,9 @@ module.exports = {
 
 
 
-
+    baseurl: process.env.PIS_BASE_URL,
     port: process.env.PORT || 5000,
-    mock_server_url: process.env.MOCK_SERVER_URL,
-    mock_server_parametreler: process.env.MOCK_SERVER_PARAMETRELER,
+    EXTERNAL_SERVICE_CHECK_URL: this.baseurl + process.env.EXTERNAL_SERVICE_CHECK_URL,
+    SERVICE_PARAMETERS_URL: this.baseurl + process.env.SERVICE_PARAMETERS_URL,
     funcToExternalUrl,
 };
