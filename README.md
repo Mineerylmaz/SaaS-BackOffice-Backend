@@ -57,6 +57,7 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
 
 
 ##  Proje Yapısı
+```
 
 ├── controllers/       # İş mantığı ve fonksiyonlar
 ├── middleware/        # Yetkilendirme, hata yakalama vb.
@@ -67,7 +68,16 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
 ├── tests/             # Birim ve entegrasyon testleri
 ├── package.json       # Bağımlılıklar ve scriptler
 └── README.md          # Proje dokümantasyonu
+```
 ##  Kurulum & Çalıştırma
+Frontend Entegrasyonu:
+Bu backend API, frontend uygulamanızın veri alıp gönderebilmesi için tasarlanmıştır. Frontend, API endpointlerine istekler göndererek kullanıcı arayüzü ve veri yönetimi arasında köprü kurar.
+
+Backend API URL'si genellikle http://localhost:32807 olarak çalışır.
+
+Frontend projesinde, bu URL'yi API baz URL’si olarak ayarlamanız yeterlidir.
+ [Frontend Repo Linki](https://github.com/Mineerylmaz/SaaSBackOfficeFrontend)
+ 
 Gereksinimler
 Node.js v14+
 
