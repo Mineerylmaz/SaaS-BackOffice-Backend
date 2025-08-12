@@ -5,6 +5,7 @@
 - [Teknolojiler](#teknolojiler)
 - [Proje Yapısı](#proje-yapısı)
 - [Kurulum & Çalıştırma](#Kurulum-Çalıştırma)
+- [Veritabanı Migration](#veritabanı-migration)
 - [ API Dokümantasyonu](#api-Dokümantasyonu)
 - [Kredi Yönetimi](#Kredi-Yönetimi)
 - [Projeyi Geliştirmek İster misiniz?](#Projeyi-Geliştirmek-İster-misiniz?)
@@ -92,20 +93,13 @@ DB_NAME=veritabaniadi
 DB_PORT=3306
 
 
-Veritabanı Yapısını Oluşturun:
- Knex CLI'yı Yükleyin 
-Knex migration komutlarını kullanabilmek için global veya proje bazlı knex kurulumu gerekir.
-
-Global olarak yüklemek için:
-npm install -g knex
-
-Ya da proje içinde:
-npm install knex --save
-npm install knex-cli --save-dev
-Migration Dosyalarını Çalıştırın
-Migration dosyaları migrations/ klasörü altında bulunmaktadır. Tüm tabloları oluşturmak için aşağıdaki komutu çalıştırın:
+## Veritabanı Migration (Tabloların Oluşması)
+Migration işlemleri için knex.js kullanıyoruz.
+Projeyi klonlayan kişinin yapması gereken tek şey:
 npx knex migrate:latest
-Bu komut, migration dosyalarını sırayla çalıştırarak MySQL veritabanınızda tabloları oluşturacaktır.
+Bu komut, migrations/ klasöründeki tüm migration dosyalarını sırayla çalıştırarak MySQL veritabanınızda tabloları sıfırdan oluşturacaktır.
+Varolan tablolar varsa üzerine yazmaz, hata vermez.
+Not: Eğer knex komutu bulunmazsa ya da hata alırsanız, proje dizinindeyken bağımlılıkların tam yüklü olduğundan emin olun (npm install).
 
 Uygulamayı Başlatın:
 npm run start
