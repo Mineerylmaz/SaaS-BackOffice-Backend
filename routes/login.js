@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
 
     try {
         const [rows] = await pool.query(
-            'SELECT id, email, password_hash, role, plan, plan_start_date, plan_end_date, avatar, deleted FROM users WHERE email = ?',
+            'SELECT id, email, password_hash, role, plan, plan_start_date, plan_end_date, avatar, deleted,next_plan, plan_change_date FROM users WHERE email = ?',
             [email]
         );
 
@@ -79,6 +79,8 @@ router.post('/login', async (req, res) => {
             plan_start_date: user.plan_start_date,
             plan_end_date: user.plan_end_date,
             avatar: user.avatar,
+            next_plan: user.next_plan,
+            plan_change_date: user.plan_change_date,
             customInputValues: customInputValues
         });
     } catch (error) {
