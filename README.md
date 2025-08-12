@@ -94,7 +94,7 @@ DB_NAME=veritabaniadi
 DB_PORT=3306
 
 
-## Veritabanı Migration (Tabloların Oluşması)
+## Veritabanı Migration
 Migration işlemleri için knex.js kullanıyoruz.
 Projeyi klonlayan kişinin yapması gereken tek şey:
 npx knex migrate:latest
@@ -106,7 +106,7 @@ Uygulamayı Başlatın:
 npm run start
 API, varsayılan olarak http://localhost:32807 adresinde çalışacaktır.
 
-## API Dokümantasyonu (Örnek)
+## API Dokümantasyonu
 Kullanıcı Kayıt
 
 POST /api/register
