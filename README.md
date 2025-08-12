@@ -35,7 +35,7 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
 
 ##  Teknolojiler
 
-- **Node.js**  >= 18.x
+- **Node.js**  
   Sunucu tarafı JavaScript çalışma zamanı  
   ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
 
@@ -43,7 +43,7 @@ Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güve
   Minimal ve esnek web uygulama framework'ü  
   ![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)
 
-- **MySQL**   8.0.x (mysql2 ile test edilmiştir)
+- **MySQL**   
   Güçlü ilişkisel veritabanı sistemi  
   ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)
 
@@ -79,9 +79,9 @@ Frontend projesinde, bu URL'yi API baz URL’si olarak ayarlamanız yeterlidir.
  [Frontend Repo Linki](https://github.com/Mineerylmaz/SaaSBackOfficeFrontend)
  
 Gereksinimler
-Node.js v14+
+Node.js v22.14.0 veya üzeri
 
-MySQL veritabanı
+MySQL veritabanı 8.0.x (mysql2 ile test edilmiştir)
 
 Git
 
