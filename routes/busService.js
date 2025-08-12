@@ -18,7 +18,7 @@ async function fetchParamSchema() {
 function validateParams(func, query, paramSchema) {
     const schema = paramSchema[func];
     if (!schema) {
-        console.log("Şema bulunamadı. Gelen func:", func);
+        logger.info("Şema bulunamadı. Gelen func:", func);
         return `Func "${func}" için şema bulunamadı`;
     }
 
@@ -60,8 +60,8 @@ router.get('/PassengerInformationServices/Bus', async (req, res) => {
         }
 
         const response = await axios.get(baseUrl);
-        console.log("Gelen func:", func);
-        console.log("Şemadaki func'lar:", Object.keys(schemas));
+        logger.info("Gelen func:", func);
+        logger.info("Şemadaki func'lar:", Object.keys(schemas));
 
         res.json(response.data);
 

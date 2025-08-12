@@ -19,9 +19,10 @@
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "knex": "^3.1.0",
     "mongoose": "^8.16.4",
     "multer": "^2.0.2",
-    "mysql2": "^3.14.1",
+    "mysql2": "^3.14.3",
     "node-cron": "^4.2.0",
     "node-fetch": "^3.3.2",
     "uuid": "^11.1.0",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
+    "knex-cli": "^1.0.1",
     "nodemon": "^3.1.10",
     "supertest": "^6.3.4"
   }

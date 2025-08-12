@@ -48,6 +48,8 @@ router.post('/login', async (req, res) => {
             'SELECT key_name, value FROM user_tab WHERE user_id = ?',
             [user.id]
         );
+
+
         const customInputValues = {};
         userTabRows.forEach(row => {
             customInputValues[row.key_name] = row.value;

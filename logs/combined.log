@@ -9294,3 +9294,1209 @@
 [90m2025-08-11 17:32:39[39m [[35minfo[39m] userRole
 [90m2025-08-11 17:32:39[39m [[35minfo[39m] settings key isteği geldi
 [90m2025-08-11 17:32:39[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:26:16[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 08:26:16[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 08:28:42[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:28:42[39m [[35minfo[39m] req
+[90m2025-08-12 08:28:42[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] req
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] req
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] req
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] req
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:28:43[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:28:50[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:28:50[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:28:50[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:28:50[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:28:50[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:28:50[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:28:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:28:52[39m [[35minfo[39m] req
+[90m2025-08-12 08:28:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:28:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:28:52[39m [[35minfo[39m] req
+[90m2025-08-12 08:28:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:50:59[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 08:51:54[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 08:51:54[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz sali3@mail.com null user
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] req
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] req
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] req
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] req
+[90m2025-08-12 08:53:18[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] req
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] req
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] req
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] req
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:54:24[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:54:28[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:54:28[39m [[35minfo[39m] req
+[90m2025-08-12 08:54:28[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:54:28[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:54:28[39m [[35minfo[39m] req
+[90m2025-08-12 08:54:28[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:54:32[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:54:32[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:54:34[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:54:34[39m [[35minfo[39m] req
+[90m2025-08-12 08:54:34[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:54:34[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:54:34[39m [[35minfo[39m] req
+[90m2025-08-12 08:54:34[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:54:35[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:54:35[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:54:55[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:54:55[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:54:55[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:54:55[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:54:55[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:54:55[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:54:56[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:54:56[39m [[35minfo[39m] req
+[90m2025-08-12 08:54:56[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:54:56[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:54:56[39m [[35minfo[39m] req
+[90m2025-08-12 08:54:56[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:55:01[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 08:55:01[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 08:55:17[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:55:17[39m [[35minfo[39m] req
+[90m2025-08-12 08:55:17[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:55:25[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 08:55:25[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz son31@mail.com Basic editor
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] req
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] req
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] req
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] req
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:55:36[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:55:41[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:55:41[39m [[35minfo[39m] req
+[90m2025-08-12 08:55:41[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:55:41[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:55:41[39m [[35minfo[39m] req
+[90m2025-08-12 08:55:41[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:55:43[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:55:43[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:55:56[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:55:56[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:55:56[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:55:56[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:55:56[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:55:56[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 08:55:57[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:55:57[39m [[35minfo[39m] req
+[90m2025-08-12 08:55:57[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:55:57[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:55:57[39m [[35minfo[39m] req
+[90m2025-08-12 08:55:57[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:56:02[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:56:02[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 08:56:04[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:56:04[39m [[35minfo[39m] req
+[90m2025-08-12 08:56:04[39m [[35minfo[39m] userRole
+[90m2025-08-12 08:56:04[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 08:56:04[39m [[35minfo[39m] req
+[90m2025-08-12 08:56:04[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:06:42[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 09:06:42[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 09:07:38[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:07:39[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz sonsali5@mail.com null user
+[90m2025-08-12 09:09:08[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 09:09:08[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 09:09:26[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:10:25[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 09:10:25[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 09:10:27[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:10:27[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz sonsali6@mail.com null user
+[90m2025-08-12 09:13:43[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:13:43[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz sonsali7@mail.com null user
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] req
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] req
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] req
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] req
+[90m2025-08-12 09:13:45[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:14:15[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 09:14:15[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 09:14:53[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 09:14:53[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 09:15:09[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:15:09[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz sonsali9@mail.com null user
+[90m2025-08-12 09:15:25[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 09:15:25[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 09:15:26[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:15:33[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:15:33[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz sonsali10@mail.com null user
+[90m2025-08-12 09:15:53[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 09:15:53[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 09:15:56[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:15:57[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz sonsali11@mail.com null user
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] req
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] req
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] req
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] req
+[90m2025-08-12 09:15:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] req
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] req
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] req
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] req
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:16:11[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:16:28[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 09:16:28[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 09:16:28[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 09:16:28[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 09:16:28[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 09:16:28[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 09:16:29[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:16:29[39m [[35minfo[39m] req
+[90m2025-08-12 09:16:29[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:16:29[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:16:29[39m [[35minfo[39m] req
+[90m2025-08-12 09:16:29[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:16:36[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 09:16:36[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 09:16:40[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 09:16:40[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 09:16:45[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 09:16:45[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 09:16:58[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:16:58[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:17:17[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:17:17[39m [[35minfo[39m] req
+[90m2025-08-12 09:17:17[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:17:21[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:17:21[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz bvhejfebjkbfp@mail.com Premium editor
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] req
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] req
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] req
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] req
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:17:24[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:17:27[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:17:27[39m [[35minfo[39m] req
+[90m2025-08-12 09:17:27[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:17:27[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:17:27[39m [[35minfo[39m] req
+[90m2025-08-12 09:17:27[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:17:28[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:17:28[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:51:20[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:51:20[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz cgkcghkcghk@mail.com null user
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] req
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] req
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] req
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] req
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:51:33[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:55:25[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 09:55:25[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz salison1@mail.com null user
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] req
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] req
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] req
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] req
+[90m2025-08-12 09:55:27[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] req
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] req
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] req
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] req
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 09:55:35[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:00:41[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 10:00:41[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz bjkgoewrbup@mail.com null user
+[90m2025-08-12 10:00:41[39m [[35minfo[39m] burası
+[90m2025-08-12 10:00:41[39m [[35minfo[39m] user
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] req
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] req
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] req
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] req
+[90m2025-08-12 10:04:10[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] req
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] req
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] req
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] req
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:04:52[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:04:56[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:04:56[39m [[35minfo[39m] req
+[90m2025-08-12 10:04:56[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:04:56[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:04:56[39m [[35minfo[39m] req
+[90m2025-08-12 10:04:56[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:05:10[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:05:10[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] req
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] req
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] req
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] req
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:09:52[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:11:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:11:35[39m [[35minfo[39m] req
+[90m2025-08-12 10:11:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:11:35[39m [[35minfo[39m] Plan kaydediliyor:
+[90m2025-08-12 10:11:35[39m [[35minfo[39m] Plan kaydediliyor:
+[90m2025-08-12 10:11:35[39m [[35minfo[39m] Plan kaydediliyor:
+[90m2025-08-12 10:11:46[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:11:46[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:11:50[39m [[35minfo[39m] settings key id=15 güncellendi
+[90m2025-08-12 10:25:04[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 10:25:04[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz eryilmazmine336@gmail.com null user
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] req
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] req
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] req
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] req
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:26:42[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:27:02[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:27:02[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:27:19[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 10:27:20[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 10:27:20[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 10:27:20[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 10:27:20[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 10:27:20[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 10:27:29[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 10:27:29[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 10:27:37[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:27:37[39m [[35minfo[39m] req
+[90m2025-08-12 10:27:37[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:27:37[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:27:37[39m [[35minfo[39m] req
+[90m2025-08-12 10:27:37[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:27:57[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 10:27:57[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 10:28:09[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:28:09[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:29:42[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:29:42[39m [[35minfo[39m] req
+[90m2025-08-12 10:29:42[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:29:53[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 10:29:53[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz bhjvcbbcvxv@mail.com Premium editor
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] req
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] req
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] req
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] req
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:30:06[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] req
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] req
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] req
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] req
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:30:42[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] req
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] req
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] req
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] req
+[90m2025-08-12 10:31:31[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:32:29[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:32:29[39m [[35minfo[39m] req
+[90m2025-08-12 10:32:29[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] req
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] req
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] req
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] req
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:32:30[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:32:39[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:32:39[39m [[35minfo[39m] req
+[90m2025-08-12 10:32:39[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:32:39[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:32:39[39m [[35minfo[39m] req
+[90m2025-08-12 10:32:39[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:32:42[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:32:42[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:33:21[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:33:21[39m [[35minfo[39m] req
+[90m2025-08-12 10:33:21[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:33:21[39m [[35minfo[39m] Plan kaydediliyor:
+[90m2025-08-12 10:33:21[39m [[35minfo[39m] Plan kaydediliyor:
+[90m2025-08-12 10:33:21[39m [[35minfo[39m] Plan kaydediliyor:
+[90m2025-08-12 10:33:32[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:33:32[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:43:00[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 10:43:00[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz eryilm6@gmail.com null user
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] req
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] req
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] req
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] req
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:43:09[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:43:18[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 10:43:18[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz bdcwsjvbjclbejl@gmail.com null user
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] req
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] req
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] req
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] req
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] userRole
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 10:43:28[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:17:19[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 11:17:20[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz eryilmazmighne6@gmail.com null user
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] req
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] req
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] req
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] req
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:26:40[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:26:47[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:26:47[39m [[35minfo[39m] req
+[90m2025-08-12 11:26:47[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:26:47[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:26:47[39m [[35minfo[39m] req
+[90m2025-08-12 11:26:47[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:27:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:27:35[39m [[35minfo[39m] req
+[90m2025-08-12 11:27:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:27:40[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 11:27:59[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 11:27:59[39m [[35minfo[39m] Yeni kullanıcı eklendi: ksali d ksali@mail.com null user
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:01[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:14[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:28:37[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:28:42[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 11:28:42[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 11:28:42[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 11:28:42[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 11:28:42[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 11:28:42[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 11:28:44[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:44[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:44[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:28:44[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:28:44[39m [[35minfo[39m] req
+[90m2025-08-12 11:28:44[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:02[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:02[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:02[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:09[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 11:29:09[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz son134@mail.com Premium admin
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:29:11[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:29:28[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:29:31[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:45[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:51[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:51[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:51[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:51[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:29:51[39m [[35minfo[39m] req
+[90m2025-08-12 11:29:51[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:29:53[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:29:53[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:31:40[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 11:31:40[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 11:31:42[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] req
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] req
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] req
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] req
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:31:53[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:31:55[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:31:55[39m [[35minfo[39m] req
+[90m2025-08-12 11:31:55[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:31:55[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:31:55[39m [[35minfo[39m] req
+[90m2025-08-12 11:31:55[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:31:58[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 11:33:31[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 11:33:31[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 11:33:31[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 11:33:34[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 11:33:39[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 11:37:55[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 11:37:55[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 11:38:00[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 11:38:02[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] req
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] req
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] req
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] req
+[90m2025-08-12 11:38:13[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:38:51[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 11:38:51[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 11:38:55[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:38:55[39m [[35minfo[39m] req
+[90m2025-08-12 11:38:55[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] req
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] req
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] req
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:38:56[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] req
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] req
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] req
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] req
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:39:06[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:39:07[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:39:07[39m [[35minfo[39m] req
+[90m2025-08-12 11:39:07[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:39:07[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:39:07[39m [[35minfo[39m] req
+[90m2025-08-12 11:39:07[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:39:15[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:39:15[39m [[35minfo[39m] req
+[90m2025-08-12 11:39:15[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:39:20[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 11:39:51[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 11:39:51[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:40:05[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:40:06[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:06[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:06[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:06[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:06[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:06[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:16[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:16[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:16[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:21[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 11:40:21[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz son135@mail.com Premium admin
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:40:24[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:40:40[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:40:43[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:43[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:43[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:43[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:43[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:43[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:45[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] req
+[90m2025-08-12 11:40:54[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:41:49[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 11:41:49[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz son18@mail.com null user
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] req
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] req
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] req
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] req
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:41:58[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:42:02[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:02[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:02[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:02[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:02[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:02[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:02[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:42:02[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:42:10[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:10[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:10[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:10[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:10[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:10[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:12[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:42:12[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:42:16[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:16[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:16[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:16[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:16[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:16[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:22[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 11:42:22[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 11:42:24[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:42:24[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:42:36[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:36[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:36[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] req
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:42:58[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:43:07[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:43:07[39m [[35minfo[39m] req
+[90m2025-08-12 11:43:07[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:43:13[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] req
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] req
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] req
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] req
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:43:30[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:43:36[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:43:36[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:43:36[39m [[35minfo[39m] req
+[90m2025-08-12 11:43:36[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:43:36[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] req
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] req
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] req
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] req
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:44:16[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:44:23[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:44:23[39m [[35minfo[39m] req
+[90m2025-08-12 11:44:23[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:44:23[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:44:23[39m [[35minfo[39m] req
+[90m2025-08-12 11:44:23[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:44:46[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:44:46[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:45:02[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:45:02[39m [[35minfo[39m] req
+[90m2025-08-12 11:45:02[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:45:02[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:45:02[39m [[35minfo[39m] req
+[90m2025-08-12 11:45:02[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:45:32[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:45:32[39m [[35minfo[39m] req
+[90m2025-08-12 11:45:32[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:45:32[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:45:32[39m [[35minfo[39m] req
+[90m2025-08-12 11:45:32[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:45:37[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:45:37[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:45:50[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:45:50[39m [[35minfo[39m] req
+[90m2025-08-12 11:45:50[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:45:50[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:45:50[39m [[35minfo[39m] req
+[90m2025-08-12 11:45:50[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:45:54[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 11:45:54[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 11:46:09[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:46:09[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] req
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] req
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] req
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] req
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:46:18[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] req
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] req
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] req
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] req
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:47:00[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] req
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] req
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] req
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] req
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] userRole
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 11:55:51[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] req
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] req
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] req
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] req
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 12:04:35[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 12:04:38[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 12:04:38[39m [[35minfo[39m] req
+[90m2025-08-12 12:04:38[39m [[35minfo[39m] userRole
+[90m2025-08-12 12:04:38[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 12:04:38[39m [[35minfo[39m] req
+[90m2025-08-12 12:04:38[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:38:30[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:38:30[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] req
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] req
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] req
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] req
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:42:38[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] req
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] req
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] req
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] req
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:52:44[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:52:48[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:52:48[39m [[35minfo[39m] req
+[90m2025-08-12 13:52:48[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:52:48[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:52:48[39m [[35minfo[39m] req
+[90m2025-08-12 13:52:48[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:52:50[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:52:50[39m [[35minfo[39m] req
+[90m2025-08-12 13:52:50[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:52:50[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:52:50[39m [[35minfo[39m] req
+[90m2025-08-12 13:52:50[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:52:51[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:52:51[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:52:51[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:52:51[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:52:51[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:52:51[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:53:01[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:53:01[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:53:07[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:53:07[39m [[35minfo[39m] req
+[90m2025-08-12 13:53:07[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:53:07[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:53:07[39m [[35minfo[39m] req
+[90m2025-08-12 13:53:07[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:53:14[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 13:53:14[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 13:53:14[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 13:53:14[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 13:53:15[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 13:53:15[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 13:53:16[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 13:53:16[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 13:53:16[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 13:53:16[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 13:53:16[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 13:53:16[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 13:53:17[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 13:53:17[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 13:53:17[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 13:53:17[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 13:53:17[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 13:53:17[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 13:53:18[39m [[35minfo[39m] Gelen func:
+[90m2025-08-12 13:53:18[39m [[35minfo[39m] Şemadaki func'lar:
+[90m2025-08-12 13:53:21[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:53:21[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:54:05[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:54:13[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:13[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:13[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:29[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 13:54:29[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz son182@mail.com Pro editor
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:31[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:32[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:54:32[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:54:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:52[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:52[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:52[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:54:52[39m [[35minfo[39m] req
+[90m2025-08-12 13:54:52[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:54:53[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:54:53[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:54:53[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:54:53[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:54:53[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:54:53[39m [[35minfo[39m] Mock sunucudan gelen ham cevap:
+[90m2025-08-12 13:54:54[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:54:54[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:55:13[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:55:27[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:27[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:27[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:32[39m [[35minfo[39m] Register geldi:
+[90m2025-08-12 13:55:32[39m [[35minfo[39m] Yeni kullanıcı eklendi: Mine Eryılmaz son136@mail.com Premium editor
+[90m2025-08-12 13:55:34[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:34[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:34[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:55:35[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:55:37[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:37[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:37[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:37[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:37[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:37[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:38[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:55:38[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:55:48[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:48[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:48[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:48[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:55:48[39m [[35minfo[39m] req
+[90m2025-08-12 13:55:48[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:55:58[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:55:58[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:56:36[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:56:36[39m [[35minfo[39m] req
+[90m2025-08-12 13:56:36[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:56:36[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:56:36[39m [[35minfo[39m] req
+[90m2025-08-12 13:56:36[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:56:36[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:56:36[39m [[35minfo[39m] req
+[90m2025-08-12 13:56:36[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:56:37[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:56:37[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:56:37[39m [[35minfo[39m] req
+[90m2025-08-12 13:56:37[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:56:37[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:56:40[39m [[35minfo[39m] delete işlemi başladı
+[90m2025-08-12 13:56:45[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:56:45[39m [[35minfo[39m] settings key isteği geldi
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] req
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] req
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] req
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] userRole
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] req
+[90m2025-08-12 13:56:55[39m [[35minfo[39m] userRole
+[90m2025-08-12 14:00:53[39m [[35minfo[39m] JWT_SECRET config test:
+[90m2025-08-12 14:00:53[39m [[35minfo[39m]  Server http://localhost:32807
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] req
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] userRole
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] req
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] userRole
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] req
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] userRole
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] allowedRoles
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] req
+[90m2025-08-12 14:01:07[39m [[35minfo[39m] userRole

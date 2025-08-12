@@ -111,18 +111,21 @@ router.delete('/:email', authenticateToken, async (req, res) => {
         return res.status(404).json({ error: "Davet bulunamadı" });
     }
 
+    await pool.query(
+        `UPDATE users 
+     SET plan = NULL, plan_start_date = NULL, plan_end_date = NULL , role = 'user'
+     WHERE email = ?`,
+        [invitedEmail]
+    );
 
     await pool.query(
         'DELETE FROM invites WHERE email = ? AND inviter_user_id = ?',
         [invitedEmail, inviterId]
     );
 
-
-
-    res.status(200).json({ message: "Davet silindi" });
-
-
+    res.status(200).json({ message: "Davet silindi ve kullanıcı basic plana geçirildi" });
 });
+
 router.get('/by-inviter/:inviterEmail', authenticateToken, async (req, res) => {
     const inviterEmail = req.params.inviterEmail;
 
