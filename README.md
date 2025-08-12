@@ -4,11 +4,12 @@
 - [Özellikler](#özellikler)
 - [Teknolojiler](#teknolojiler)
 - [Proje Yapısı](#proje-yapısı)
-- [Kurulum & Çalıştırma](#Kurulum-Çalıştırma)
+- [Kurulum & Çalıştırma](#kurulum--çalıştırma)
 - [Veritabanı Migration](#veritabanı-migration)
-- [ API Dokümantasyonu](#api-Dokümantasyonu)
-- [Kredi Yönetimi](#Kredi-Yönetimi)
-- [Projeyi Geliştirmek İster misiniz?](#Projeyi-Geliştirmek-İster-misiniz?)
+- [API Dokümantasyonu](#api-dokümantasyonu)
+- [Kredi Yönetimi](#kredi-yönetimi)
+- [Projeyi Geliştirmek İster misiniz?](#projeyi-geliştirmek-ister-misiniz)
+
 
  ## Proje Tanımı
 SaaS Backoffice Backend API, modern SaaS (Software as a Service) platformları için geliştirilen güçlü, esnek ve güvenilir bir backend altyapısıdır.
