@@ -96,7 +96,7 @@ Bağımlılıkları Yükleyin:
 npm install
 
 Ortam Değişkenlerini Ayarlayın:
-.env dosyası oluşturup kendi ortamınıza göre düzenleyin.
+Kök dizinde .env dosyası oluşturup kendi ortamınıza göre düzenleyin.
 DB_HOST=localhost
 DB_USER=kullaniciadi
 DB_PASSWORD=sifre

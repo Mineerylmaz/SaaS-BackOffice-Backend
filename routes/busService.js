@@ -1,19 +1,18 @@
 const express = require('express');
 const axios = require('axios');
 const router = express.Router();
-const { mock_server_parametreler, funcToExternalUrl } = require('../config');
+const { SERVICE_PARAMETERS_URL, basefuncurl } = require('../config');
 const logger = require('../logger');
 
 async function fetchParamSchema() {
     try {
-        const response = await axios.get(mock_server_parametreler);
+        const response = await axios.get(SERVICE_PARAMETERS_URL);
         return response.data;
     } catch (error) {
         console.error("Parametre şeması alınamadı:", error.message);
         return {};
     }
 }
-
 
 function validateParams(func, query, paramSchema) {
     const schema = paramSchema[func];
@@ -22,13 +21,11 @@ function validateParams(func, query, paramSchema) {
         return `Func "${func}" için şema bulunamadı`;
     }
 
-
     for (const { field, req } of schema.params) {
         if (req && !query[field]) {
             return `${field} parametresi zorunlu`;
         }
     }
-
     return null;
 }
 
@@ -45,30 +42,24 @@ router.get('/PassengerInformationServices/Bus', async (req, res) => {
         const error = validateParams(func, query, schemas);
         if (error) return res.status(400).json({ error });
 
-        let baseUrl = funcToExternalUrl[func];
-        if (!baseUrl) {
-            return res.status(400).json({ error: 'Geçersiz func' });
-        }
+        let baseUrl = `${basefuncurl}/${func}/PassengerInformationServices/Bus`;
+
+        const queryString = new URLSearchParams(query).toString();
+        const finalUrl = queryString ? `${baseUrl}?${queryString}` : baseUrl;
+
+        const response = await axios.get(finalUrl, { timeout: 5000 });
 
 
-        const schemaParams = schemas[func].params;
-        for (const { field } of schemaParams) {
-            const val = query[field];
-            if (val !== undefined) {
-                baseUrl += `&${field}=${encodeURIComponent(val)}`;
-            }
-        }
-
-        const response = await axios.get(baseUrl);
-        logger.info("Gelen func:", func);
-        logger.info("Şemadaki func'lar:", Object.keys(schemas));
-
+        logger.info("Giden URL:", finalUrl);
+        logger.info("Sunucudan gelen data:", response.data);
         res.json(response.data);
 
     } catch (err) {
         console.error("Sunucu hatası:", err.message);
+        console.error("Hata detayları:", err.code, err.response?.status, err.response?.data);
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
+
 
 module.exports = router;
