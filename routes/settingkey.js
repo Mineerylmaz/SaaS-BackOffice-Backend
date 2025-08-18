@@ -21,10 +21,11 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const { key_name, type, description, required } = req.body;
+        const { key_name, type, description, required, is_repeatable } = req.body;
+        const repeatable = is_repeatable ? 1 : 0;
         await pool.query(
-            'INSERT INTO setting_keys (key_name, type, description, required) VALUES (?, ?, ?, ?)',
-            [key_name, type, description, required ?? false]
+            'INSERT INTO setting_keys (key_name, type, description, required,is_repeatable) VALUES (?, ?, ?, ?,?)',
+            [key_name, type, description, required ?? false, is_repeatable ? 1 : 0]
         );
 
         logger.info("settings key isteği eklendi")
@@ -47,14 +48,15 @@ router.delete('/:id', async (req, res) => {
 });
 router.put('/:id', async (req, res) => {
     const { id } = req.params;
-    const { key_name, type, description, required } = req.body;
+    const { key_name, type, description, required, is_repeatable } = req.body;
+    const repeatable = is_repeatable ? 1 : 0;
 
     try {
         const [result] = await pool.query(
             `UPDATE setting_keys 
-             SET key_name = ?, type = ?, description = ?, required = ?
+             SET key_name = ?, type = ?, description = ?, required = ?,is_repeatable=?
              WHERE id = ?`,
-            [key_name, type, description, required ?? false, id]
+            [key_name, type, description, required ?? false, repeatable, id]
         );
 
         if (result.affectedRows === 0) {

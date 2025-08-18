@@ -31,12 +31,23 @@ const bcrypt = require('bcrypt');
 
 
 
-router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user', 'superadmin']), restrictSuperadminUpdate, async (req, res) => {
-    const { userId } = req.params;
+router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user', 'superadmin', 'viewer']), restrictSuperadminUpdate, async (req, res) => {
+    let { userId } = req.params;
+
+    if (req.user.role === 'viewer') {
+        const [inviteRows] = await pool.query(
+            'SELECT inviter_user_id FROM invites WHERE email = ? ',
+            [req.user.email]
+        );
+        if (inviteRows.length) {
+            userId = inviteRows[0].inviter_user_id;
+        }
+    }
     const [customInputsRows] = await pool.query(
         'SELECT key_name, value FROM user_tab WHERE user_id = ?',
         [userId]
     );
+
 
     const customInputs = {};
     customInputsRows.forEach(row => {
@@ -49,8 +60,7 @@ router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'edit
     u.id,
     u.plan,
     us.settings,
-    p.rt_url_limit,
-    p.static_url_limit,
+    p.plan_limit,
     p.max_file_size  ,
     p.roles
   FROM 
@@ -72,17 +82,19 @@ router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'edit
         const row = rows[0];
 
         res.json({
+            id: row.id,
             settings: row.settings,
             plan: {
                 name: row.plan,
-                rt_url_limit: row.rt_url_limit,
-                static_url_limit: row.static_url_limit,
+                plan_limit: typeof row.plan_limit === 'string'
+                    ? JSON.parse(row.plan_limit || '{}')
+                    : (row.plan_limit || {}),
+
                 max_file_size: row.max_file_size,
                 roles: row.roles
             },
             customInputs
         });
-
 
     } catch (error) {
         console.error(error);
@@ -91,72 +103,97 @@ router.get('/settings/:userId', authenticateToken, authorizeRole(['admin', 'edit
 });
 
 
+router.get('/userInputs/:userId', authenticateToken, authorizeRole(['admin', 'editor', 'user', 'superadmin']), restrictSuperadminUpdate, async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+        const [rows] = await pool.query(
+            'SELECT key_name, value FROM user_tab WHERE user_id = ?',
+            [userId]
+        );
+
+        if (!rows.length) return res.json({ rtUrls: [], staticUrls: [], allInputs: {} });
+
+        const allInputs = {};
+        const rtUrls = [];
+        const staticUrls = [];
+
+        rows.forEach(row => {
+            allInputs[row.key_name] = row.value;
+
+            if (row.key_name.startsWith('rt_url_limit')) {
+                rtUrls.push({ key: row.key_name, value: row.value });
+            }
+            if (row.key_name.startsWith('static_url_limit')) {
+                staticUrls.push({ key: row.key_name, value: row.value });
+            }
+        });
+
+        res.json({ rtUrls, staticUrls, allInputs });
+    } catch (err) {
+        console.error('User inputs çekilirken hata:', err);
+        res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
+
 
 
 router.get('/urlResults/:userId', async (req, res) => {
     const { userId } = req.params;
 
     try {
-        const [settingsRows] = await pool.query('SELECT settings FROM user_settings WHERE user_id = ?', [userId]);
+        const [settingsRows] = await pool.query(
+            'SELECT settings FROM user_settings WHERE user_id = ?',
+            [userId]
+        );
+
         if (!settingsRows.length) {
             return res.status(404).json({ error: 'Kullanıcı ayarları bulunamadı' });
         }
 
-        const settings = (settingsRows[0].settings || '{}');
-        const urls = [
-            ...(settings.rt_urls || []),
-            ...(settings.static_urls || [])
-        ];
-
-        if (urls.length === 0) {
-            return res.json({ data: [] });
+        let settings = settingsRows[0].settings;
+        if (typeof settings === 'string') {
+            try { settings = JSON.parse(settings); }
+            catch { settings = {}; }
         }
 
-        const results = await Promise.all(urls.map(async (entry) => {
-            try {
-                const response = await fetch(mock_server_url);
-                const text = await response.text();
-                logger.info('Mock sunucudan gelen ham cevap:', text);
 
-                let data;
-                try {
-                    data = JSON.parse(text);
-                } catch (e) {
-                    console.error('JSON parse hatası:', text);
-                    data = {};
-                }
+        let rtUrls = Array.isArray(settings.rt_urls) ? settings.rt_urls : [];
+        let staticUrls = Array.isArray(settings.static_urls) ? settings.static_urls : [];
 
-                return {
-                    id: crypto.randomUUID(),
-                    name: entry.name || 'Başlıksız',
-                    url: entry.url,
-                    type: entry.type || 'unknown',
-                    responseTime: data.responseTime || Math.floor(Math.random() * 500),
-                    status: data.status || 'error',
-                    errorMessage: data.status === 'error' ? data.message || 'Bilinmeyen hata' : null,
-                    checkedAt: data.checkedAt || new Date().toISOString()
-                };
-            } catch (err) {
-                console.error('Fetch hatası:', err);
-                return {
-                    id: crypto.randomUUID(),
-                    name: entry.name || 'Başlıksız',
-                    url: entry.url,
-                    type: entry.type || 'unknown',
-                    responseTime: null,
-                    status: 'error',
-                    errorMessage: 'Mock çağrısı başarısız',
-                    checkedAt: new Date().toISOString()
-                };
+        Object.entries(settings).forEach(([key, value]) => {
+            if (!value) return;
+            if (key.startsWith('rt_url_limit') || key === 'Rt Url 1') {
+                rtUrls.push({ name: key, url: value, type: 'rt' });
             }
+            if (key.startsWith('static_url_limit') || key === 'Static Url 1') {
+                staticUrls.push({ name: key, url: value, type: 'static' });
+            }
+        });
+
+        const urls = [...rtUrls, ...staticUrls];
+
+        if (!urls.length) return res.json({ data: [] });
+
+        const results = urls.map(entry => ({
+            id: crypto.randomUUID(),
+            name: entry.name || 'Başlıksız',
+            url: entry.url,
+            type: entry.type || 'unknown',
+            responseTime: Math.floor(Math.random() * 500),
+            status: 'success',
+            errorMessage: null,
+            checkedAt: new Date().toISOString()
         }));
 
         res.json(results);
     } catch (err) {
-        console.error('Mock çağrıları sırasında hata:', err);
+        console.error('URL sonuçları çekilirken hata:', err);
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
+
+
 
 
 
@@ -183,6 +220,7 @@ router.post('/urlResults', authenticateToken, authorizeRole(['admin', 'editor', 
 
 router.put('/settings/:userId', restrictSuperadminUpdate, async (req, res) => {
     const { userId } = req.params;
+
     const { settings } = req.body;
     try {
 
@@ -227,6 +265,80 @@ router.delete('/settings/url/:userId', authenticateToken, authorizeRole(['admin'
         res.status(500).json({ error: 'Sunucu hatası' });
     }
 });
+
+router.get("/full-keys/:userId", async (req, res) => {
+    const { userId } = req.params;
+
+    try {
+
+        const [userRows] = await pool.query(`
+            SELECT u.plan, p.plan_limit
+            FROM users u
+            LEFT JOIN pricing p 
+                ON u.plan COLLATE utf8mb4_general_ci = p.name COLLATE utf8mb4_general_ci
+            WHERE u.id = ?
+        `, [userId]);
+
+        if (!userRows.length) {
+            return res.status(404).json({ error: "Kullanıcı veya plan bulunamadı" });
+        }
+
+        const userPlan = userRows[0];
+        let planLimit = {};
+
+        try {
+            if (typeof userPlan.plan_limit === 'string') {
+                planLimit = JSON.parse(userPlan.plan_limit || '{}');
+            } else if (typeof userPlan.plan_limit === 'object' && userPlan.plan_limit !== null) {
+                planLimit = userPlan.plan_limit;
+            } else {
+                planLimit = {};
+            }
+        } catch (err) {
+            console.error('Plan limit parse hatası:', err);
+            planLimit = {};
+        }
+
+        const [baseKeys] = await pool.query(`
+            SELECT key_name, type, required, description, is_repeatable
+            FROM setting_keys
+        `);
+
+        let finalKeys = [];
+
+        baseKeys.forEach(key => {
+            if (key.is_repeatable) {
+                let limit = 1;
+
+                for (const [limitKey, limitValue] of Object.entries(planLimit)) {
+                    if (key.key_name.toLowerCase().includes(limitKey.toLowerCase())) {
+                        limit = limitValue;
+                        break;
+                    }
+                }
+
+                for (let i = 1; i <= limit; i++) {
+                    finalKeys.push({
+                        ...key,
+                        key_name: `${key.key_name}_${i}`,
+                        description: `${key.description} ${i}`
+                    });
+                }
+            } else {
+                finalKeys.push(key);
+            }
+
+        });
+
+        res.json(finalKeys);
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: "Sunucu hatası" });
+    }
+});
+
+
 
 
 

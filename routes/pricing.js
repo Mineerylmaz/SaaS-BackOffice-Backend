@@ -4,15 +4,16 @@ const pool = require('../db');
 const authenticateToken = require('../middleware/authenticateToken');
 const authorizeRole = require('../middleware/authorizeRole');
 const logger = require('../logger');
+
+
 router.get('/', async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM pricing');
 
-
         const parsedRows = rows.map((row) => {
             let roles = row.roles;
             let metotlar = row.metotlar;
-
+            let plan_limit = row.plan_limit;
 
             if (typeof roles === 'string') {
                 try {
@@ -28,15 +29,24 @@ router.get('/', async (req, res) => {
                     metotlar = JSON.parse(metotlar);
                 } catch (e) {
                     console.warn(`metotlar parse edilemedi: ${metotlar}`);
-                    methods = [];
+                    metotlar = [];
                 }
             }
 
+            if (typeof plan_limit === 'string') {
+                try {
+                    plan_limit = JSON.parse(plan_limit);
+                } catch (e) {
+                    console.warn(`plan_limit parse edilemedi: ${plan_limit}`);
+                    plan_limit = {};
+                }
+            }
 
             return {
                 ...row,
-                roles: roles,
+                roles,
                 metotlar,
+                plan_limit
             };
         });
 
@@ -48,7 +58,6 @@ router.get('/', async (req, res) => {
 });
 
 
-
 router.put('/', authenticateToken, authorizeRole(['superadmin']), async (req, res) => {
     const pricingList = req.body;
 
@@ -56,29 +65,24 @@ router.put('/', authenticateToken, authorizeRole(['superadmin']), async (req, re
 
         await pool.query('DELETE FROM pricing');
 
-
         for (const plan of pricingList) {
             logger.info('Plan kaydediliyor:', plan);
             await pool.query(
-                'INSERT INTO pricing (name, price, features, rt_url_limit, static_url_limit, max_file_size, roles, credits,metotlar) VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)',
+                `INSERT INTO pricing 
+                 (name, price, features, plan_limit, max_file_size, roles, credits, metotlar) 
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
                 [
                     plan.name,
                     plan.price,
-                    JSON.stringify(plan.features),
-                    plan.rt_url_limit || 0,
-                    plan.static_url_limit || 0,
+                    JSON.stringify(plan.features || {}),
+                    JSON.stringify(plan.plan_limit || {}),
                     plan.max_file_size || 0,
                     JSON.stringify(plan.roles || []),
                     plan.credits || 0,
                     JSON.stringify(plan.metotlar || [])
                 ]
             );
-
-
-
         }
-
-
 
         res.json(pricingList);
     } catch (error) {

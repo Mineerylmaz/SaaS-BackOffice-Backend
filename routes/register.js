@@ -6,6 +6,7 @@ const config = require('../config');
 const router = express.Router();
 const logger = require('../logger');
 require('dotenv').config();
+
 router.post('/add-user', async (req, res) => {
     try {
         const { firstname, lastname, email, password, plan, role } = req.body;
@@ -16,51 +17,55 @@ router.post('/add-user', async (req, res) => {
 
         logger.info('Register geldi:', { firstname, lastname, email, plan, role });
 
-
         const hashedPassword = await bcrypt.hash(password, 10);
-        const planStartDate = new Date();
-        const planEndDate = new Date();
-        planEndDate.setDate(planStartDate.getDate() + 30);
-
-
 
         const roleToInsert = typeof role === 'object' ? role.value || 'user' : role || 'user';
-
-
-        //const planToInsert = typeof plan === 'object' ? plan?.name : plan || null;
         const planToInsert = plan?.name || null;
+
+        let planStartDate = null;
+        let planEndDate = null;
+
+
+        if (planToInsert) {
+            planStartDate = new Date();
+            planEndDate = new Date();
+            planEndDate.setDate(planStartDate.getDate() + 30);
+        }
+
+
 
 
 
         const [result] = await pool.query(
             'INSERT INTO users (firstname, lastname, email, password_hash, plan, role, plan_start_date, plan_end_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
             [firstname, lastname, email, hashedPassword, planToInsert, roleToInsert, planStartDate, planEndDate]
+
         );
 
-
         logger.info(`Yeni kullanıcı eklendi: ${firstname} ${lastname} ${email} ${planToInsert} ${roleToInsert}`);
+
+        // Daveti güncelle
         await pool.query(
             "UPDATE invites SET status = 'kabul edildi' WHERE email = ? AND status = 'bekliyor'",
             [email]
         );
+
         const [pricingRows] = await pool.query(
-            `SELECT name, roles, rt_url_limit, static_url_limit, max_file_size FROM pricing WHERE name = ?`,
+            `SELECT name, roles, plan_limit, max_file_size, price FROM pricing WHERE name = ?`,
             [planToInsert]
         );
 
-
         let planObj = null;
         if (pricingRows.length > 0) {
-            const planRow = pricingRows[0];
+            const row = pricingRows[0];
             planObj = {
-                name: planRow.name,
-                roles: JSON.parse(planRow.roles),
-                rt_url_limit: planRow.rt_url_limit,
-                static_url_limit: planRow.static_url_limit,
-                max_file_size: planRow.max_file_size,
+                name: row.name,
+                roles: JSON.parse(row.roles),
+                plan_limit: typeof row.plan_limit === 'string' ? JSON.parse(row.plan_limit) : row.plan_limit,
+                max_file_size: row.max_file_size,
+                price: row.price
             };
         }
-
         const defaultSettings = {
             rt_urls: [],
             static_urls: [],
@@ -72,6 +77,11 @@ router.post('/add-user', async (req, res) => {
             [result.insertId, JSON.stringify(defaultSettings)]
         );
 
+        const [userRows] = await pool.query(
+            'SELECT id, email, role, plan, plan_start_date, plan_end_date, next_plan, plan_change_date, avatar FROM users WHERE id = ?',
+            [result.insertId]
+        );
+        const u = userRows[0];
         const SECRET = process.env.JWT_SECRET;
         const token = jwt.sign(
             { id: result.insertId, email, role: roleToInsert },
@@ -80,16 +90,23 @@ router.post('/add-user', async (req, res) => {
         );
 
         res.status(201).json({
-            message: 'Kullanıcı başarıyla eklendi',
-            user: { id: result.insertId, email, role: roleToInsert, plan: planObj },
-            token
+            id: u.id,
+            email: u.email,
+            role: u.role,
+            plan: planObj,                          // zengin plan
+            token: token,
+            plan_start_date: u.plan_start_date,
+            plan_end_date: u.plan_end_date,
+            avatar: u.avatar,
+            next_plan: u.next_plan,
+            plan_change_date: u.plan_change_date,
+            customInputValues: {},                  // istersen burada da doldur
         });
 
     } catch (error) {
         console.error('Add user error:', error);
         res.status(500).json({ error: 'Bir hata oluştu' });
     }
-
 });
 
 module.exports = router;
