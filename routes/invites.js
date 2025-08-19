@@ -13,9 +13,19 @@ router.post('/', authenticateToken, authorizeRole(['admin', 'user', 'superadmin'
         return res.status(400).json({ error: 'Email ve rol zorunludur' });
     }
 
-    const token = uuidv4();
-
     try {
+
+        const [existingUser] = await pool.query(
+            'SELECT id FROM users WHERE email = ?',
+            [email]
+        );
+
+        if (existingUser.length > 0) {
+            return res.status(400).json({ error: 'Bu email zaten sistemde kayıtlı, davet gönderilemez!' });
+        }
+
+        const token = uuidv4();
+
         const [result] = await pool.query(
             'INSERT INTO invites (inviter_user_id, email, role, token, status, invited_at) VALUES (?, ?, ?, ?, ?, NOW())',
             [inviterId, email, role, token, 'pending']
@@ -23,6 +33,7 @@ router.post('/', authenticateToken, authorizeRole(['admin', 'user', 'superadmin'
 
         const inviteId = result.insertId;
         res.json({ success: true, id: inviteId, token });
+
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Sunucu hatası' });
@@ -51,7 +62,7 @@ router.post("/accept", async (req, res) => {
 
     try {
         const [rows] = await pool.query(
-            'SELECT * FROM invites WHERE token = ?',
+            "SELECT * FROM invites WHERE token = ?",
             [token]
         );
 
@@ -66,16 +77,23 @@ router.post("/accept", async (req, res) => {
         }
 
         await pool.query(
-            'UPDATE invites SET status = ? WHERE token = ?',
-            ['accepted', token]
+            "UPDATE invites SET status = ? WHERE token = ?",
+            ["accepted", token]
         );
 
-        res.status(200).json({ success: true });
+
+        const [updatedRows] = await pool.query(
+            "SELECT * FROM invites WHERE token = ?",
+            [token]
+        );
+
+        res.status(200).json(updatedRows[0]);
     } catch (err) {
         console.error("Davet kabul hatası:", err);
         res.status(500).json({ error: "Sunucu hatası" });
     }
 });
+
 
 router.get('/:token', async (req, res) => {
     const { token } = req.params;
@@ -123,7 +141,7 @@ router.delete('/:email', authenticateToken, async (req, res) => {
         [invitedEmail, inviterId]
     );
 
-    res.status(200).json({ message: "Davet silindi ve kullanıcı basic plana geçirildi" });
+    res.status(200).json({ message: "Davet silindi ve kullanıcı null plana geçirildi" });
 });
 
 router.get('/by-inviter/:inviterEmail', authenticateToken, async (req, res) => {
@@ -139,6 +157,40 @@ router.get('/by-inviter/:inviterEmail', authenticateToken, async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Sunucu hatası' });
+    }
+});
+router.post("/reject", async (req, res) => {
+    const { token } = req.body;
+
+    try {
+        const [rows] = await pool.query(
+            "SELECT * FROM invites WHERE token = ?",
+            [token]
+        );
+
+        if (rows.length === 0) {
+            return res.status(404).json({ error: "Davet bulunamadı" });
+        }
+
+        const invite = rows[0];
+
+        if (invite.status === "accepted") {
+            return res.status(400).json({ error: "Davet zaten kabul edilmiş, reddedilemez" });
+        }
+
+        if (invite.status === "rejected") {
+            return res.status(400).json({ error: "Davet zaten reddedilmiş" });
+        }
+
+        await pool.query(
+            "UPDATE invites SET status = ? WHERE token = ?",
+            ["rejected", token]
+        );
+
+        res.status(200).json({ success: true, message: "Davet reddedildi" });
+    } catch (err) {
+        console.error("Davet reddetme hatası:", err);
+        res.status(500).json({ error: "Sunucu hatası" });
     }
 });
 
