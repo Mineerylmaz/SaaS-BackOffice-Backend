@@ -19,17 +19,17 @@ Neden bu proje?
 Günümüz SaaS uygulamalarında arka uç sistemleri hem performans hem de güvenlik açısından kritik öneme sahiptir. Bu proje, gerçek dünya kullanım senaryoları ve ölçeklenebilirlik düşünülerek hazırlanmıştır.
 
 ##  Özellikler
-🔐 Güvenli Kullanıcı Yönetimi: Bcrypt ile güçlü şifre hash’leme
+⛉ Güvenli Kullanıcı Yönetimi: Bcrypt ile güçlü şifre hash’leme
 
-🔑 JWT ile Yetkilendirme: API erişimlerini güvence altına alma
+⚷ JWT ile Yetkilendirme: API erişimlerini güvence altına alma
 
-📋 Abonelik Planları CRUD: Dinamik plan oluşturma, güncelleme ve silme
+🗒 Abonelik Planları CRUD: Dinamik plan oluşturma, güncelleme ve silme
 
-👑 Rol Tabanlı Yönetici Yetkileri: Superadmin ve admin kontrolü
+♛ Rol Tabanlı Yönetici Yetkileri: Superadmin ve admin kontrolü
 
-🛡️ Hata Yönetimi ve Validation: Sağlam ve kullanıcı dostu hata mesajları
+⚠︎ Hata Yönetimi ve Validation: Sağlam ve kullanıcı dostu hata mesajları
 
-⚡ Performans Odaklı: Optimize edilmiş sorgular ve düşük gecikme
+⚡︎ Performans Odaklı: Optimize edilmiş sorgular ve düşük gecikme
 
 📈 Kredi ve Kullanım Takibi: Planlara göre detaylı kredi yönetimi
 
